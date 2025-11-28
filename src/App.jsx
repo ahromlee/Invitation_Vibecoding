@@ -316,26 +316,42 @@ END:VCALENDAR`;
           style={{
             position: 'relative',
             zIndex: 10,
-            paddingTop: '3rem',
-            textAlign: 'center'
+            paddingTop: '2.5rem',
+            paddingLeft: '2rem',
+            paddingRight: '2rem'
           }}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          <div style={{ 
-            fontSize: '2rem', 
-            letterSpacing: '0.4em', 
-            color: theme.accent, 
-            fontWeight: 200,
-            marginBottom: '0.25rem'
-          }}>WEDDING</div>
-          <div style={{ 
-            fontSize: '2rem', 
-            letterSpacing: '0.4em', 
-            color: theme.accent, 
-            fontWeight: 200
-          }}>INVITATION</div>
+          <motion.div 
+            style={{ 
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: '3rem', 
+              letterSpacing: '0.15em', 
+              color: theme.accent, 
+              fontWeight: 300,
+              textAlign: 'left',
+              lineHeight: 1.1
+            }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >WEDDING</motion.div>
+          <motion.div 
+            style={{ 
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: '3rem', 
+              letterSpacing: '0.15em', 
+              color: theme.accent, 
+              fontWeight: 300,
+              textAlign: 'right',
+              lineHeight: 1.1
+            }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >INVITATION</motion.div>
         </motion.div>
 
         {/* 중앙: 신랑 신부 이름 */}
