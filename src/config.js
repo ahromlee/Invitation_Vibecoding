@@ -42,7 +42,7 @@ export const colorPalettes = {
 export const config = {
   // ===== 테마 설정 =====
   // ColorTheme.PINK (1) 또는 ColorTheme.GREEN (2) 선택
-  colorTheme: ColorTheme.PINK,
+  colorTheme: ColorTheme.GREEN,
 
   // ===== 신랑/신부 정보 =====
   groom: {
@@ -64,6 +64,8 @@ export const config = {
     time: '13:00', // HH:MM 형식 (24시간)
     dateText: '2026년 4월 18일 토요일',
     timeText: '오후 1시',
+    devDescription: '* 본 청접장은 github repository에서 확인할 수 있습니다.',
+    devRepository: 'https://github.com/arom-dev/wedding-invitation',
   },
 
   // ===== 예식장 정보 =====
