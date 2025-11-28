@@ -1112,7 +1112,7 @@ END:VCALENDAR`;
       <footer style={{ padding: '3rem 1rem', textAlign: 'center', color: '#6b7280' }}>
         <div className="container">
           <p style={{ marginBottom: '0.375rem', fontSize: '0.875rem', fontWeight: 300 }}>{config.groom.name} ♥ {config.bride.name}</p>
-          <p style={{ fontSize: '0.75rem', fontWeight: 300 }}>{config.wedding.dateText}</p>
+          <p style={{ marginBottom: '1.5rem', fontSize: '0.75rem', fontWeight: 300 }}>{config.wedding.dateText}</p>
           <p style={{ fontSize: '0.75rem', fontWeight: 300 }}>{config.wedding.devDescription}</p>
           <p style={{ fontSize: '0.75rem', fontWeight: 300 }}>{config.wedding.devRepository}</p>
         </div>
