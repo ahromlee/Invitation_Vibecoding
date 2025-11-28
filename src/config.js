@@ -80,7 +80,8 @@ export const config = {
   maps: {
     naver: 'https://naver.me/G02HkD4H',
     kakao: 'https://kko.kakao.com/m7wFN3SI-8',
-    tmap: 'https://tmap.life/ea42d1f6', 
+    tmap: 'https://tmap.life/ea42d1f6',
+    image: '/map_image.jpg', // 지도 이미지 (public 폴더에 추가)
   },
 
   // ===== 교통편 안내 =====

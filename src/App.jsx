@@ -758,6 +758,44 @@ END:VCALENDAR`;
               </div>
             </div>
             
+            {/* 지도 이미지 */}
+            <div style={{
+              borderRadius: '0.75rem',
+              overflow: 'hidden',
+              boxShadow: '0 4px 16px 0 rgba(0,0,0,0.08)',
+              marginBottom: '1rem',
+              backgroundColor: '#f3f4f6'
+            }}>
+              <img 
+                src={config.maps.image}
+                alt="오시는 길"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block'
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  const errorDiv = e.target.nextElementSibling;
+                  if (errorDiv) errorDiv.style.display = 'flex';
+                }}
+              />
+              <div style={{
+                display: 'none',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '200px',
+                backgroundColor: '#f9fafb',
+                flexDirection: 'column',
+                gap: '0.5rem'
+              }}>
+                <svg style={{ width: '2.5rem', height: '2.5rem', color: '#9ca3af' }} viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <p style={{ color: '#9ca3af', fontSize: '0.75rem' }}>/public/map_image.jpg 파일을 추가하세요</p>
+              </div>
+            </div>
+
             {/* 지도 탭 */}
             <div style={{
               display: 'flex',
@@ -791,56 +829,6 @@ END:VCALENDAR`;
               ))}
             </div>
 
-            {/* 지도 iframe */}
-            <div style={{
-              borderRadius: '0.75rem',
-              overflow: 'hidden',
-              boxShadow: '0 4px 16px 0 rgba(0,0,0,0.08)',
-              marginBottom: '1rem',
-              height: '280px',
-              backgroundColor: '#f3f4f6'
-            }}>
-              {activeMapTab === 'naver' && (
-                <iframe
-                  src={`https://map.naver.com/p/search/${encodeURIComponent(config.venue.name)}`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  title="네이버 지도"
-                ></iframe>
-              )}
-              {activeMapTab === 'kakao' && (
-                <iframe
-                  src={`https://map.kakao.com/link/search/${encodeURIComponent(config.venue.name)}`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  title="카카오맵"
-                ></iframe>
-              )}
-              {activeMapTab === 'tmap' && (
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#f9fafb',
-                  flexDirection: 'column',
-                  gap: '1rem'
-                }}>
-                  <svg style={{ width: '3rem', height: '3rem', color: '#E4002B' }} viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                  <p style={{ color: '#6b7280', fontSize: '0.875rem', textAlign: 'center' }}>
-                    T맵 앱에서 길안내를 받으세요
-                  </p>
-                </div>
-              )}
-            </div>
-
             {/* 지도 앱 열기 버튼 */}
             <div style={{ 
               display: 'flex', 
@@ -850,7 +838,7 @@ END:VCALENDAR`;
                 href={
                   activeMapTab === 'naver' ? config.maps.naver :
                   activeMapTab === 'kakao' ? config.maps.kakao :
-                  config.maps.tmap || `tmap://route?goalname=${encodeURIComponent(config.venue.name)}&goalx=${config.venue.longitude || ''}&goaly=${config.venue.latitude || ''}`
+                  config.maps.tmap
                 }
                 target="_blank"
                 rel="noopener noreferrer"
