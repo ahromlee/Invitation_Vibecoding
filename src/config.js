@@ -6,7 +6,7 @@ export const config = {
   groom: {
     name: '아롬',
     fatherName: '이원조',
-    motherName: '이정숙',
+    motherName: '이점숙',
     relation: '장남', // 장남, 차남, 삼남 등
   },
   bride: {
@@ -62,8 +62,8 @@ export const config = {
   // ===== 계좌 정보 =====
   accounts: {
     groom: {
-      bank: '예시은행',
-      accountNumber: '123-456-789012',
+      bank: '신한은행',
+      accountNumber: '110-482-263062',
       holder: '아롬',
     },
     bride: {
@@ -97,12 +97,13 @@ export const config = {
   // ===== 갤러리 이미지 =====
   // public 폴더에 이미지 추가 후 여기에 경로 입력
   gallery: [
-    '/gallery-1.jpg',
-    // '/gallery-2.jpg',
-    // '/gallery-3.jpg',
+    '/gallery_1.jpg',
+    '/gallery_2.jpg',
+    '/gallery_3.jpg',
+    '/gallery_4.jpg',
   ],
 
   // ===== 픽셀아트/메인 이미지 =====
-  pixelArt: '/pixel-art.gif',
+  pixelArt: '/pixel_art.gif',
 };
 
