@@ -34,9 +34,9 @@ export const config = {
 
   // ===== 지도 링크 =====
   maps: {
-    naver: 'https://naver.me/5l7kwvZZ',
-    kakao: 'https://kko.kakao.com/oIX0oTGwik',
-    tmap: '', // T맵 공유 링크 (없으면 자동 검색)
+    naver: 'https://naver.me/G02HkD4H',
+    kakao: 'https://kko.kakao.com/m7wFN3SI-8',
+    tmap: 'https://tmap.life/ea42d1f6', 
   },
 
   // ===== 교통편 안내 =====
