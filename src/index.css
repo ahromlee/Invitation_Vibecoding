@@ -1,54 +1,38 @@
-/* ===== 아티스틱 / 캘리그라피 폰트 ===== */
+/* ===== 우아하고 세련된 폰트 ===== */
 
-/* KCC 은영 - 붓 캘리그라피 (제목, 이름용) */
+/* 마포꽃섬 - 부드럽고 우아한 한글 */
 @font-face {
-  font-family: 'KCC-Eunyoung';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+  font-family: 'MapoFlowerIsland';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
-/* 여기어때 잘난체 - 감각적 손글씨 */
-@font-face {
-  font-family: 'yg-jalnan';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
+/* 나눔명조 - 클래식 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
 
-/* 나눔손글씨 펜 - 부드러운 펜글씨 */
-@font-face {
-  font-family: 'NanumPen';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
+/* 고운바탕 - 우아한 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
 
-/* 리디바탕 - 세련된 세리프 */
-@font-face {
-  font-family: 'RIDIBatang';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* 고운돋움 - 둥글둥글한 고딕 (본문용) */
+/* 고운돋움 - 부드러운 본문용 */
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
-/* 영문 캘리그라피 - Great Vibes */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-/* 영문 캘리그라피 - Pinyon Script */
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-
-/* 영문 캘리그라피 - Dancing Script */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-
-/* 프리텐다드 - 깔끔한 본문용 */
+/* 프리텐다드 - 깔끔한 UI용 */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
+/* ===== 영문 폰트 ===== */
+
+/* Cormorant Garamond - 우아한 영문 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* Italiana - 고급스러운 패션 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
 /* Playfair Display - 클래식 영문 세리프 */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* Great Vibes - 우아한 필기체 */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 * {
   margin: 0;
@@ -57,7 +41,7 @@
 }
 
 :root {
-  font-family: 'Gowun Dodum', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Gowun Dodum', 'Gowun Batang', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   font-weight: 400;

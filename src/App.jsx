@@ -351,13 +351,14 @@ END:VCALENDAR`;
         >
           <motion.div 
             style={{ 
-              fontFamily: "'Great Vibes', 'Pinyon Script', cursive",
-              fontSize: '3rem', 
-              letterSpacing: '0.05em', 
+              fontFamily: "'Cormorant Garamond', 'Playfair Display', serif",
+              fontSize: '2.75rem', 
+              letterSpacing: '0.2em', 
               color: theme.accentSolid, 
               fontWeight: 400,
+              fontStyle: 'italic',
               textAlign: 'left',
-              lineHeight: 1.2
+              lineHeight: 1.1
             }}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -365,13 +366,14 @@ END:VCALENDAR`;
           >Wedding</motion.div>
           <motion.div 
             style={{ 
-              fontFamily: "'Great Vibes', 'Pinyon Script', cursive",
-              fontSize: '3rem', 
-              letterSpacing: '0.05em', 
+              fontFamily: "'Cormorant Garamond', 'Playfair Display', serif",
+              fontSize: '2.75rem', 
+              letterSpacing: '0.2em', 
               color: theme.accentSolid, 
               fontWeight: 400,
+              fontStyle: 'italic',
               textAlign: 'right',
-              lineHeight: 1.2
+              lineHeight: 1.1
             }}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -404,11 +406,11 @@ END:VCALENDAR`;
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <span style={{ 
-              fontFamily: "'KCC-Eunyoung', 'RIDIBatang', serif",
-              fontSize: '2.25rem', 
+              fontFamily: "'MapoFlowerIsland', 'Gowun Batang', serif",
+              fontSize: '2rem', 
               fontWeight: 400, 
               color: '#374151', 
-              letterSpacing: '0.15em'
+              letterSpacing: '0.2em'
             }}>{config.groom.name}</span>
             <motion.span 
               style={{ 
@@ -426,11 +428,11 @@ END:VCALENDAR`;
               }}
             >♥</motion.span>
             <span style={{ 
-              fontFamily: "'KCC-Eunyoung', 'RIDIBatang', serif",
-              fontSize: '2.25rem', 
+              fontFamily: "'MapoFlowerIsland', 'Gowun Batang', serif",
+              fontSize: '2rem', 
               fontWeight: 400, 
               color: '#374151',
-              letterSpacing: '0.15em'
+              letterSpacing: '0.2em'
             }}>{config.bride.name}</span>
           </motion.div>
 
@@ -528,13 +530,13 @@ END:VCALENDAR`;
             transition={{ duration: 0.6 }}
           >
             <h2 style={{
-              fontFamily: "'KCC-Eunyoung', 'RIDIBatang', serif",
-              fontSize: '1.75rem',
+              fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
+              fontSize: '1.5rem',
               fontWeight: 400,
               textAlign: 'center',
               marginBottom: '2rem',
               color: '#374151',
-              letterSpacing: '0.1em'
+              letterSpacing: '0.15em'
             }}>{config.greeting.title}</h2>
             <div style={{ 
               display: 'flex',
@@ -594,13 +596,13 @@ END:VCALENDAR`;
             transition={{ duration: 0.6 }}
           >
             <h2 style={{
-              fontFamily: "'KCC-Eunyoung', 'RIDIBatang', serif",
-              fontSize: '1.75rem',
+              fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
+              fontSize: '1.5rem',
               fontWeight: 400,
               textAlign: 'center',
               marginBottom: '2rem',
               color: '#374151',
-              letterSpacing: '0.1em'
+              letterSpacing: '0.15em'
             }}>우리의 이야기</h2>
             <div style={{
               display: 'flex',
@@ -680,13 +682,13 @@ END:VCALENDAR`;
       <section id="gallery" className="py-16">
         <div className="container">
           <h2 style={{
-            fontFamily: "'KCC-Eunyoung', 'RIDIBatang', serif",
-            fontSize: '1.75rem',
+            fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
+            fontSize: '1.5rem',
             fontWeight: 400,
             textAlign: 'center',
             marginBottom: '2rem',
             color: '#374151',
-            letterSpacing: '0.1em'
+            letterSpacing: '0.15em'
           }}>갤러리</h2>
           <div style={{
             backdropFilter: 'blur(24px)',
@@ -914,13 +916,13 @@ END:VCALENDAR`;
             transition={{ duration: 0.6 }}
           >
             <h2 style={{
-              fontFamily: "'KCC-Eunyoung', 'RIDIBatang', serif",
-              fontSize: '1.75rem',
+              fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
+              fontSize: '1.5rem',
               fontWeight: 400,
               textAlign: 'center',
               marginBottom: '2rem',
               color: '#374151',
-              letterSpacing: '0.1em'
+              letterSpacing: '0.15em'
             }}>오시는 길</h2>
             <div style={{ marginBottom: '1.5rem', textAlign: 'center', color: '#4b5563' }}>
               <p style={{ fontSize: '1rem', fontWeight: 300, marginBottom: '0.5rem' }}>{config.venue.name}</p>
@@ -1277,13 +1279,13 @@ END:VCALENDAR`;
       <section id="account" className="py-16">
         <div className="container">
           <h2 style={{
-            fontFamily: "'KCC-Eunyoung', 'RIDIBatang', serif",
-            fontSize: '1.75rem',
+            fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
+            fontSize: '1.5rem',
             fontWeight: 400,
             textAlign: 'center',
             marginBottom: '2rem',
             color: '#374151',
-            letterSpacing: '0.1em'
+            letterSpacing: '0.15em'
           }}>마음 전하실 곳</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {/* 신랑측 계좌 */}
