@@ -42,8 +42,8 @@ export const config = {
   // ============================================================
   hero: {
     // 메인 타이틀 (영문 또는 한글)
-    titleLine1: '롬과 륜,',            // 첫 줄
-    titleLine2: '결혼합니다..!',         // 둘째 줄
+    titleLine1: '우리',            // 첫 줄
+    titleLine2: '결혼해요',         // 둘째 줄
     // 배경 이미지
     backgroundImage: '/bg.jpg',
     backgroundOpacity: 0.5,       // 0.0 ~ 1.0
@@ -170,15 +170,37 @@ export const config = {
   // 11. 계좌 정보
   // ============================================================
   accounts: {
+    // 신랑측
     groom: {
       bank: '신한은행',
       accountNumber: '110-482-263062',
       holder: '이아롬',
     },
+    groomFather: {
+      bank: '농협',           // 은행명 (빈 문자열이면 표시 안함)
+      accountNumber: '246-02-228936',
+      holder: '이원조',
+    },
+    groomMother: {
+      bank: '농협',
+      accountNumber: '246-02-138021',
+      holder: '이점숙',
+    },
+    // 신부측
     bride: {
-      bank: '예시은행',
-      accountNumber: '987-654-321098',
+      bank: '국민은행',
+      accountNumber: '404015-2900197-01',
       holder: '신경륜',
+    },
+    brideFather: {
+      bank: '륜알려주세요은행',
+      accountNumber: '11111111111',
+      holder: '신락현',
+    },
+    brideMother: {
+      bank: '륜알려주세요은행',
+      accountNumber: '11111111111',
+      holder: '곽광숙',
     },
   },
 

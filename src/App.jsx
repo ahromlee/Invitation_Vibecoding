@@ -8,7 +8,11 @@ const theme = colorPalettes[config.colorTheme];
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [copied, setCopied] = useState({ groom: false, bride: false });
+  const [copied, setCopied] = useState({ 
+    groom: false, bride: false, 
+    groomFather: false, groomMother: false,
+    brideFather: false, brideMother: false 
+  });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
@@ -1289,7 +1293,7 @@ END:VCALENDAR`;
             color: '#374151',
             letterSpacing: '0.15em'
           }}>{config.sectionTitles.account}</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* 신랑측 계좌 */}
             <motion.div
               style={{
@@ -1308,47 +1312,98 @@ END:VCALENDAR`;
             >
               <h3 style={{
                 fontSize: '1.125rem',
-                fontWeight: 300,
+                fontWeight: 400,
                 marginBottom: '1.25rem',
                 color: '#374151',
                 textAlign: 'center',
-                letterSpacing: '0.025em'
+                letterSpacing: '0.05em'
               }}>신랑측</h3>
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.75rem',
-                color: '#4b5563',
-                fontSize: '0.875rem',
-                textAlign: 'center'
-              }}>
-                <p style={{ fontWeight: 300 }}>은행명 <span style={{ marginLeft: '0.5rem' }}>{config.accounts.groom.bank}</span></p>
-                <p style={{ fontWeight: 300 }}>계좌번호 <span style={{ marginLeft: '0.5rem' }}>{config.accounts.groom.accountNumber}</span></p>
-                <p style={{ fontWeight: 300 }}>예금주 <span style={{ marginLeft: '0.5rem' }}>{config.accounts.groom.holder}</span></p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {/* 신랑 본인 */}
+                {config.accounts.groom.bank && (
+                  <div style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                    borderRadius: '0.75rem',
+                    padding: '1rem'
+                  }}>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem', fontWeight: 400 }}>신랑 {config.groom.name}</p>
+                    <p style={{ fontSize: '0.875rem', color: '#374151', marginBottom: '0.25rem' }}>{config.accounts.groom.bank} {config.accounts.groom.accountNumber}</p>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.75rem' }}>{config.accounts.groom.holder}</p>
+                    <button
+                      onClick={() => copyToClipboard(`${config.accounts.groom.bank} ${config.accounts.groom.accountNumber} ${config.accounts.groom.holder}`, 'groom')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '0.5rem',
+                        padding: '0.5rem',
+                        color: '#4b5563',
+                        fontSize: '0.8125rem',
+                        fontWeight: 400,
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {copied.groom ? '✓ 복사됨' : '복사하기'}
+                    </button>
+                  </div>
+                )}
+                {/* 신랑 아버지 */}
+                {config.accounts.groomFather?.bank && (
+                  <div style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                    borderRadius: '0.75rem',
+                    padding: '1rem'
+                  }}>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem', fontWeight: 400 }}>아버지 {config.groom.fatherName}</p>
+                    <p style={{ fontSize: '0.875rem', color: '#374151', marginBottom: '0.25rem' }}>{config.accounts.groomFather.bank} {config.accounts.groomFather.accountNumber}</p>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.75rem' }}>{config.accounts.groomFather.holder}</p>
+                    <button
+                      onClick={() => copyToClipboard(`${config.accounts.groomFather.bank} ${config.accounts.groomFather.accountNumber} ${config.accounts.groomFather.holder}`, 'groomFather')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '0.5rem',
+                        padding: '0.5rem',
+                        color: '#4b5563',
+                        fontSize: '0.8125rem',
+                        fontWeight: 400,
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {copied.groomFather ? '✓ 복사됨' : '복사하기'}
+                    </button>
+                  </div>
+                )}
+                {/* 신랑 어머니 */}
+                {config.accounts.groomMother?.bank && (
+                  <div style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                    borderRadius: '0.75rem',
+                    padding: '1rem'
+                  }}>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem', fontWeight: 400 }}>어머니 {config.groom.motherName}</p>
+                    <p style={{ fontSize: '0.875rem', color: '#374151', marginBottom: '0.25rem' }}>{config.accounts.groomMother.bank} {config.accounts.groomMother.accountNumber}</p>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.75rem' }}>{config.accounts.groomMother.holder}</p>
+                    <button
+                      onClick={() => copyToClipboard(`${config.accounts.groomMother.bank} ${config.accounts.groomMother.accountNumber} ${config.accounts.groomMother.holder}`, 'groomMother')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '0.5rem',
+                        padding: '0.5rem',
+                        color: '#4b5563',
+                        fontSize: '0.8125rem',
+                        fontWeight: 400,
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {copied.groomMother ? '✓ 복사됨' : '복사하기'}
+                    </button>
+                  </div>
+                )}
               </div>
-              <button
-                onClick={() => copyToClipboard(`${config.accounts.groom.bank} ${config.accounts.groom.accountNumber} ${config.accounts.groom.holder}`, 'groom')}
-                style={{
-                  width: '100%',
-                  marginTop: '1.25rem',
-                  backdropFilter: 'blur(4px)',
-                  WebkitBackdropFilter: 'blur(4px)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                  borderRadius: '0.75rem',
-                  padding: '0.625rem',
-                  color: '#4b5563',
-                  fontSize: '0.875rem',
-                  fontWeight: 300,
-                  border: 'none',
-                  cursor: 'pointer',
-                  boxShadow: '0 2px 8px 0 rgba(0,0,0,0.05)',
-                  transition: 'all 300ms'
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.8)'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.7)'}
-              >
-                {copied.groom ? '✓ 복사되었습니다!' : '계좌번호 복사'}
-              </button>
             </motion.div>
 
             {/* 신부측 계좌 */}
@@ -1369,47 +1424,98 @@ END:VCALENDAR`;
             >
               <h3 style={{
                 fontSize: '1.125rem',
-                fontWeight: 300,
+                fontWeight: 400,
                 marginBottom: '1.25rem',
                 color: '#374151',
                 textAlign: 'center',
-                letterSpacing: '0.025em'
+                letterSpacing: '0.05em'
               }}>신부측</h3>
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.75rem',
-                color: '#4b5563',
-                fontSize: '0.875rem',
-                textAlign: 'center'
-              }}>
-                <p style={{ fontWeight: 300 }}>은행명 <span style={{ marginLeft: '0.5rem' }}>{config.accounts.bride.bank}</span></p>
-                <p style={{ fontWeight: 300 }}>계좌번호 <span style={{ marginLeft: '0.5rem' }}>{config.accounts.bride.accountNumber}</span></p>
-                <p style={{ fontWeight: 300 }}>예금주 <span style={{ marginLeft: '0.5rem' }}>{config.accounts.bride.holder}</span></p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {/* 신부 본인 */}
+                {config.accounts.bride.bank && (
+                  <div style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                    borderRadius: '0.75rem',
+                    padding: '1rem'
+                  }}>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem', fontWeight: 400 }}>신부 {config.bride.name}</p>
+                    <p style={{ fontSize: '0.875rem', color: '#374151', marginBottom: '0.25rem' }}>{config.accounts.bride.bank} {config.accounts.bride.accountNumber}</p>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.75rem' }}>{config.accounts.bride.holder}</p>
+                    <button
+                      onClick={() => copyToClipboard(`${config.accounts.bride.bank} ${config.accounts.bride.accountNumber} ${config.accounts.bride.holder}`, 'bride')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '0.5rem',
+                        padding: '0.5rem',
+                        color: '#4b5563',
+                        fontSize: '0.8125rem',
+                        fontWeight: 400,
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {copied.bride ? '✓ 복사됨' : '복사하기'}
+                    </button>
+                  </div>
+                )}
+                {/* 신부 아버지 */}
+                {config.accounts.brideFather?.bank && (
+                  <div style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                    borderRadius: '0.75rem',
+                    padding: '1rem'
+                  }}>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem', fontWeight: 400 }}>아버지 {config.bride.fatherName}</p>
+                    <p style={{ fontSize: '0.875rem', color: '#374151', marginBottom: '0.25rem' }}>{config.accounts.brideFather.bank} {config.accounts.brideFather.accountNumber}</p>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.75rem' }}>{config.accounts.brideFather.holder}</p>
+                    <button
+                      onClick={() => copyToClipboard(`${config.accounts.brideFather.bank} ${config.accounts.brideFather.accountNumber} ${config.accounts.brideFather.holder}`, 'brideFather')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '0.5rem',
+                        padding: '0.5rem',
+                        color: '#4b5563',
+                        fontSize: '0.8125rem',
+                        fontWeight: 400,
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {copied.brideFather ? '✓ 복사됨' : '복사하기'}
+                    </button>
+                  </div>
+                )}
+                {/* 신부 어머니 */}
+                {config.accounts.brideMother?.bank && (
+                  <div style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                    borderRadius: '0.75rem',
+                    padding: '1rem'
+                  }}>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem', fontWeight: 400 }}>어머니 {config.bride.motherName}</p>
+                    <p style={{ fontSize: '0.875rem', color: '#374151', marginBottom: '0.25rem' }}>{config.accounts.brideMother.bank} {config.accounts.brideMother.accountNumber}</p>
+                    <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.75rem' }}>{config.accounts.brideMother.holder}</p>
+                    <button
+                      onClick={() => copyToClipboard(`${config.accounts.brideMother.bank} ${config.accounts.brideMother.accountNumber} ${config.accounts.brideMother.holder}`, 'brideMother')}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '0.5rem',
+                        padding: '0.5rem',
+                        color: '#4b5563',
+                        fontSize: '0.8125rem',
+                        fontWeight: 400,
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {copied.brideMother ? '✓ 복사됨' : '복사하기'}
+                    </button>
+                  </div>
+                )}
               </div>
-              <button
-                onClick={() => copyToClipboard(`${config.accounts.bride.bank} ${config.accounts.bride.accountNumber} ${config.accounts.bride.holder}`, 'bride')}
-                style={{
-                  width: '100%',
-                  marginTop: '1.25rem',
-                  backdropFilter: 'blur(4px)',
-                  WebkitBackdropFilter: 'blur(4px)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                  borderRadius: '0.75rem',
-                  padding: '0.625rem',
-                  color: '#4b5563',
-                  fontSize: '0.875rem',
-                  fontWeight: 300,
-                  border: 'none',
-                  cursor: 'pointer',
-                  boxShadow: '0 2px 8px 0 rgba(0,0,0,0.05)',
-                  transition: 'all 300ms'
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.8)'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.7)'}
-              >
-                {copied.bride ? '✓ 복사되었습니다!' : '계좌번호 복사'}
-              </button>
             </motion.div>
           </div>
         </div>
