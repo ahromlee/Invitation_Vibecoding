@@ -14,7 +14,7 @@
 /* 블랙한산스 - 두껍고 강렬한 */
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
-/* 여기어때 잘난체 - 두껍고 임팩트 */
+/* 여기어때 잘난체 - 두껍고 임팩트 (백업) */
 @font-face {
   font-family: 'yg-jalnan';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
@@ -22,10 +22,42 @@
   font-style: normal;
 }
 
-/* 카페24 모야모야 - 손글씨 느낌 */
+/* 어비 마이센 - 휘갈긴듯한 자유로운 손글씨 */
 @font-face {
-  font-family: 'Cafe24Moyamoya';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Moyamoya-Face-v1.0.woff') format('woff');
+  font-family: 'UhBeemysen';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/UhBeemysen.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 카페24 클래식타입 - 감성 캘리그라피 */
+@font-face {
+  font-family: 'Cafe24ClassicType';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* tvN 즐거운 이야기 - 부드러운 손글씨 */
+@font-face {
+  font-family: 'tvNEnjoyStories';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/tvN_Enjoystories_Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* 마포다카포 - 자유분방한 캘리 */
+@font-face {
+  font-family: 'MapoDacapo';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoDacapo.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 나눔손글씨 펜 - 펜 캘리그라피 */
+@font-face {
+  font-family: 'NanumPen';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }

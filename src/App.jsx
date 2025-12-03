@@ -351,13 +351,13 @@ END:VCALENDAR`;
         >
           <motion.div 
             style={{ 
-              fontFamily: "'yg-jalnan', 'Black Han Sans', sans-serif",
-              fontSize: '3rem', 
-              letterSpacing: '0.1em', 
+              fontFamily: "'UhBeemysen', 'MapoDacapo', 'yg-jalnan', sans-serif",
+              fontSize: '3.5rem', 
+              letterSpacing: '0.05em', 
               color: theme.accentSolid, 
               fontWeight: 400,
               textAlign: 'center',
-              lineHeight: 1.4
+              lineHeight: 1.3
             }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -366,13 +366,13 @@ END:VCALENDAR`;
           {config.hero.titleLine2 && (
             <motion.div 
               style={{ 
-                fontFamily: "'yg-jalnan', 'Black Han Sans', sans-serif",
-                fontSize: '3rem', 
-                letterSpacing: '0.1em', 
+                fontFamily: "'UhBeemysen', 'MapoDacapo', 'yg-jalnan', sans-serif",
+                fontSize: '3.5rem', 
+                letterSpacing: '0.05em', 
                 color: theme.accentSolid, 
                 fontWeight: 400,
                 textAlign: 'center',
-                lineHeight: 1.4
+                lineHeight: 1.3
               }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

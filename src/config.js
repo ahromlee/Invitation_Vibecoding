@@ -42,8 +42,8 @@ export const config = {
   // ============================================================
   hero: {
     // 메인 타이틀 (영문 또는 한글)
-    titleLine1: '우리',            // 첫 줄
-    titleLine2: '결혼해요',         // 둘째 줄
+    titleLine1: '롬과 륜,',            // 첫 줄
+    titleLine2: '결혼합니다..!',         // 둘째 줄
     // 배경 이미지
     backgroundImage: '/bg.jpg',
     backgroundOpacity: 0.5,       // 0.0 ~ 1.0
