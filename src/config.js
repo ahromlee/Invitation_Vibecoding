@@ -218,7 +218,7 @@ export const config = {
   // 13. 푸터
   // ============================================================
   footer: {
-    message: 'Made with ♥',
+    message: 'Made by 아롬',
     repository: 'https://github.com/RomRyun/Invitation',
     showRepository: true,  // GitHub 링크 표시 여부
   },
