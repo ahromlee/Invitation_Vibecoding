@@ -22,42 +22,50 @@
   font-style: normal;
 }
 
-/* 어비 마이센 - 휘갈긴듯한 자유로운 손글씨 */
+/* 마포한아름 - 아름다운 캘리그라피 */
 @font-face {
-  font-family: 'UhBeemysen';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/UhBeemysen.woff2') format('woff2');
+  font-family: 'MapoHanArum';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoGoldenPierA.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
-/* 카페24 클래식타입 - 감성 캘리그라피 */
+/* 교보손글씨 2020 박도연 - 감성 손글씨 */
 @font-face {
-  font-family: 'Cafe24ClassicType';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+  font-family: 'KyoboHand';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/KyoboHandwriting2020pdy.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
-/* tvN 즐거운 이야기 - 부드러운 손글씨 */
+/* 카페24 아네모네 - 부드럽고 예쁜 손글씨 */
 @font-face {
-  font-family: 'tvNEnjoyStories';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/tvN_Enjoystories_Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-}
-
-/* 마포다카포 - 자유분방한 캘리 */
-@font-face {
-  font-family: 'MapoDacapo';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoDacapo.woff') format('woff');
+  font-family: 'Cafe24Ohsquare';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/Cafe24Ohsquare.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
-/* 나눔손글씨 펜 - 펜 캘리그라피 */
+/* 나눔손글씨 붓 - 붓 캘리그라피 */
 @font-face {
-  font-family: 'NanumPen';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
+  font-family: 'NanumBrush';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBrush.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 학교안심 둥근미소 - 귀여운 둥근 손글씨 */
+@font-face {
+  font-family: 'HakgyoansimDunggeunmisoTTF';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-R.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 온글잎 박채령체 - 아름다운 캘리 */
+@font-face {
+  font-family: 'Ownglyph_ParkChaeYun';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkChaeYun-Rg.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }

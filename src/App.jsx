@@ -356,13 +356,13 @@ END:VCALENDAR`;
         >
           <motion.div 
             style={{ 
-              fontFamily: "'UhBeemysen', 'MapoDacapo', 'yg-jalnan', sans-serif",
-              fontSize: '3.5rem', 
-              letterSpacing: '0.05em', 
+              fontFamily: "'Ownglyph_ParkChaeYun', 'KyoboHand', 'NanumBrush', sans-serif",
+              fontSize: '3.25rem', 
+              letterSpacing: '0.1em', 
               color: theme.accentSolid, 
               fontWeight: 400,
               textAlign: 'center',
-              lineHeight: 1.3
+              lineHeight: 1.4
             }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -371,13 +371,13 @@ END:VCALENDAR`;
           {config.hero.titleLine2 && (
             <motion.div 
               style={{ 
-                fontFamily: "'UhBeemysen', 'MapoDacapo', 'yg-jalnan', sans-serif",
-                fontSize: '3.5rem', 
-                letterSpacing: '0.05em', 
+                fontFamily: "'Ownglyph_ParkChaeYun', 'KyoboHand', 'NanumBrush', sans-serif",
+                fontSize: '3.25rem', 
+                letterSpacing: '0.1em', 
                 color: theme.accentSolid, 
                 fontWeight: 400,
                 textAlign: 'center',
-                lineHeight: 1.3
+                lineHeight: 1.4
               }}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
