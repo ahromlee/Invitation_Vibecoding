@@ -1319,90 +1319,41 @@ END:VCALENDAR`;
                 marginBottom: '0.75rem',
                 textAlign: 'center'
               }}>신랑측</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
                 {[
-                  { key: 'groom', label: `신랑 ${config.groom.name}`, account: config.accounts.groom },
-                  { key: 'groomFather', label: `아버지 ${config.groom.fatherName}`, account: config.accounts.groomFather },
-                  { key: 'groomMother', label: `어머니 ${config.groom.motherName}`, account: config.accounts.groomMother },
+                  { key: 'groom', label: config.groom.name, role: '신랑', account: config.accounts.groom },
+                  { key: 'groomFather', label: config.groom.fatherName, role: '아버지', account: config.accounts.groomFather },
+                  { key: 'groomMother', label: config.groom.motherName, role: '어머니', account: config.accounts.groomMother },
                 ].filter(item => item.account?.bank).map((item) => (
-                  <div key={item.key}>
-                    <button
-                      onClick={() => setExpandedAccount(expandedAccount === item.key ? null : item.key)}
-                      style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        backgroundColor: expandedAccount === item.key ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.6)',
-                        borderRadius: expandedAccount === item.key ? '0.5rem 0.5rem 0 0' : '0.5rem',
-                        padding: '0.75rem 1rem',
-                        border: 'none',
-                        cursor: 'pointer',
-                        transition: 'all 200ms'
-                      }}
-                    >
-                      <span style={{ fontSize: '0.875rem', color: '#374151' }}>{item.label}</span>
-                      <span style={{ 
-                        fontSize: '0.75rem', 
-                        color: theme.accentSolid,
-                        transform: expandedAccount === item.key ? 'rotate(180deg)' : 'rotate(0deg)',
-                        transition: 'transform 200ms'
-                      }}>▼</span>
-                    </button>
-                    <AnimatePresence>
-                      {expandedAccount === item.key && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          style={{ overflow: 'hidden' }}
-                        >
-                          <div style={{
-                            backgroundColor: 'rgba(255,255,255,0.9)',
-                            borderRadius: '0 0 0.5rem 0.5rem',
-                            padding: '0.75rem 1rem'
-                          }}>
-                            <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.25rem' }}>{item.account.bank}</p>
-                            <p style={{ fontSize: '0.9375rem', color: '#374151', marginBottom: '0.5rem', fontWeight: 500 }}>{item.account.accountNumber}</p>
-                            <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '0.75rem' }}>예금주: {item.account.holder}</p>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                copyToClipboard(`${item.account.bank} ${item.account.accountNumber} ${item.account.holder}`, item.key);
-                              }}
-                              style={{
-                                width: '100%',
-                                backgroundColor: theme.accentSolid,
-                                color: 'white',
-                                borderRadius: '0.375rem',
-                                padding: '0.5rem',
-                                fontSize: '0.8125rem',
-                                fontWeight: 500,
-                                border: 'none',
-                                cursor: 'pointer'
-                              }}
-                            >
-                              {copied[item.key] ? '✓ 복사 완료!' : '계좌번호 복사'}
-                            </button>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <button
+                    key={item.key}
+                    onClick={() => setExpandedAccount(expandedAccount === item.key ? null : item.key)}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: expandedAccount === item.key ? theme.accentSolid : 'rgba(255,255,255,0.7)',
+                      color: expandedAccount === item.key ? 'white' : '#374151',
+                      borderRadius: '0.75rem',
+                      padding: '0.75rem 0.5rem',
+                      border: 'none',
+                      cursor: 'pointer',
+                      transition: 'all 200ms'
+                    }}
+                  >
+                    <span style={{ fontSize: '0.6875rem', opacity: 0.8, marginBottom: '0.125rem' }}>{item.role}</span>
+                    <span style={{ fontSize: '0.8125rem', fontWeight: 500 }}>{item.label}</span>
+                  </button>
                 ))}
               </div>
             </div>
 
             {/* 구분선 */}
-            <div style={{ 
-              height: '1px', 
-              backgroundColor: 'rgba(0,0,0,0.08)', 
-              margin: '1rem 0' 
-            }} />
+            <div style={{ height: '1px', backgroundColor: 'rgba(0,0,0,0.08)', margin: '0.75rem 0' }} />
 
             {/* 신부측 */}
-            <div>
+            <div style={{ marginBottom: '0.75rem' }}>
               <p style={{ 
                 fontSize: '0.9375rem', 
                 fontWeight: 500, 
@@ -1410,80 +1361,95 @@ END:VCALENDAR`;
                 marginBottom: '0.75rem',
                 textAlign: 'center'
               }}>신부측</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
                 {[
-                  { key: 'bride', label: `신부 ${config.bride.name}`, account: config.accounts.bride },
-                  { key: 'brideFather', label: `아버지 ${config.bride.fatherName}`, account: config.accounts.brideFather },
-                  { key: 'brideMother', label: `어머니 ${config.bride.motherName}`, account: config.accounts.brideMother },
+                  { key: 'bride', label: config.bride.name, role: '신부', account: config.accounts.bride },
+                  { key: 'brideFather', label: config.bride.fatherName, role: '아버지', account: config.accounts.brideFather },
+                  { key: 'brideMother', label: config.bride.motherName, role: '어머니', account: config.accounts.brideMother },
                 ].filter(item => item.account?.bank).map((item) => (
-                  <div key={item.key}>
-                    <button
-                      onClick={() => setExpandedAccount(expandedAccount === item.key ? null : item.key)}
-                      style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        backgroundColor: expandedAccount === item.key ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.6)',
-                        borderRadius: expandedAccount === item.key ? '0.5rem 0.5rem 0 0' : '0.5rem',
-                        padding: '0.75rem 1rem',
-                        border: 'none',
-                        cursor: 'pointer',
-                        transition: 'all 200ms'
-                      }}
-                    >
-                      <span style={{ fontSize: '0.875rem', color: '#374151' }}>{item.label}</span>
-                      <span style={{ 
-                        fontSize: '0.75rem', 
-                        color: theme.accentSolid,
-                        transform: expandedAccount === item.key ? 'rotate(180deg)' : 'rotate(0deg)',
-                        transition: 'transform 200ms'
-                      }}>▼</span>
-                    </button>
-                    <AnimatePresence>
-                      {expandedAccount === item.key && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          style={{ overflow: 'hidden' }}
-                        >
-                          <div style={{
-                            backgroundColor: 'rgba(255,255,255,0.9)',
-                            borderRadius: '0 0 0.5rem 0.5rem',
-                            padding: '0.75rem 1rem'
-                          }}>
-                            <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.25rem' }}>{item.account.bank}</p>
-                            <p style={{ fontSize: '0.9375rem', color: '#374151', marginBottom: '0.5rem', fontWeight: 500 }}>{item.account.accountNumber}</p>
-                            <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '0.75rem' }}>예금주: {item.account.holder}</p>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                copyToClipboard(`${item.account.bank} ${item.account.accountNumber} ${item.account.holder}`, item.key);
-                              }}
-                              style={{
-                                width: '100%',
-                                backgroundColor: theme.accentSolid,
-                                color: 'white',
-                                borderRadius: '0.375rem',
-                                padding: '0.5rem',
-                                fontSize: '0.8125rem',
-                                fontWeight: 500,
-                                border: 'none',
-                                cursor: 'pointer'
-                              }}
-                            >
-                              {copied[item.key] ? '✓ 복사 완료!' : '계좌번호 복사'}
-                            </button>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <button
+                    key={item.key}
+                    onClick={() => setExpandedAccount(expandedAccount === item.key ? null : item.key)}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: expandedAccount === item.key ? theme.accentSolid : 'rgba(255,255,255,0.7)',
+                      color: expandedAccount === item.key ? 'white' : '#374151',
+                      borderRadius: '0.75rem',
+                      padding: '0.75rem 0.5rem',
+                      border: 'none',
+                      cursor: 'pointer',
+                      transition: 'all 200ms'
+                    }}
+                  >
+                    <span style={{ fontSize: '0.6875rem', opacity: 0.8, marginBottom: '0.125rem' }}>{item.role}</span>
+                    <span style={{ fontSize: '0.8125rem', fontWeight: 500 }}>{item.label}</span>
+                  </button>
                 ))}
               </div>
             </div>
+
+            {/* 선택된 계좌 정보 표시 */}
+            <AnimatePresence>
+              {expandedAccount && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  {(() => {
+                    const allAccounts = [
+                      { key: 'groom', label: config.groom.name, role: '신랑', account: config.accounts.groom },
+                      { key: 'groomFather', label: config.groom.fatherName, role: '아버지', account: config.accounts.groomFather },
+                      { key: 'groomMother', label: config.groom.motherName, role: '어머니', account: config.accounts.groomMother },
+                      { key: 'bride', label: config.bride.name, role: '신부', account: config.accounts.bride },
+                      { key: 'brideFather', label: config.bride.fatherName, role: '아버지', account: config.accounts.brideFather },
+                      { key: 'brideMother', label: config.bride.motherName, role: '어머니', account: config.accounts.brideMother },
+                    ];
+                    const selected = allAccounts.find(a => a.key === expandedAccount);
+                    if (!selected) return null;
+                    return (
+                      <div style={{
+                        backgroundColor: 'rgba(255,255,255,0.9)',
+                        borderRadius: '0.75rem',
+                        padding: '1rem',
+                        marginTop: '0.75rem',
+                        textAlign: 'center'
+                      }}>
+                        <p style={{ fontSize: '0.875rem', color: '#374151', fontWeight: 500, marginBottom: '0.75rem' }}>
+                          {selected.role} {selected.label}
+                        </p>
+                        <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.25rem' }}>{selected.account.bank}</p>
+                        <p style={{ fontSize: '1.0625rem', color: '#1f2937', fontWeight: 600, marginBottom: '0.25rem', letterSpacing: '0.05em' }}>
+                          {selected.account.accountNumber}
+                        </p>
+                        <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '1rem' }}>예금주: {selected.account.holder}</p>
+                        <button
+                          onClick={() => copyToClipboard(`${selected.account.bank} ${selected.account.accountNumber} ${selected.account.holder}`, selected.key)}
+                          style={{
+                            width: '100%',
+                            backgroundColor: theme.accentSolid,
+                            color: 'white',
+                            borderRadius: '0.5rem',
+                            padding: '0.75rem',
+                            fontSize: '0.875rem',
+                            fontWeight: 500,
+                            border: 'none',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          {copied[expandedAccount] ? '✓ 복사 완료!' : '계좌번호 복사하기'}
+                        </button>
+                      </div>
+                    );
+                  })()}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </section>
