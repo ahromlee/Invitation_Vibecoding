@@ -344,7 +344,7 @@ END:VCALENDAR`;
           style={{
             position: 'relative',
             zIndex: 10,
-            paddingTop: '3.5rem',
+            paddingTop: '2.5rem',
             paddingLeft: '1.5rem',
             paddingRight: '1.5rem',
             width: '100%',
@@ -356,22 +356,26 @@ END:VCALENDAR`;
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* 메인 스크립트 타이틀 - Wedding Invitation */}
+          {/* 메인 캘리그라피 타이틀 */}
           <motion.div 
             style={{ 
-              fontFamily: "'Great Vibes', 'Pinyon Script', cursive",
-              fontSize: '3rem', 
-              letterSpacing: '0.02em', 
+              fontFamily: "'NanumBrush', 'Suncheon', cursive",
+              fontSize: '4rem', 
+              letterSpacing: '0.08em', 
               color: theme.accentSolid, 
               fontWeight: 400,
               textAlign: 'center',
-              lineHeight: 1.2
+              lineHeight: 1.2,
+              textShadow: '2px 2px 4px rgba(0,0,0,0.08)'
             }}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            Wedding Invitation
+            {config.hero.titleLine1}
+            {config.hero.titleLine2 && (
+              <span style={{ display: 'block' }}>{config.hero.titleLine2}</span>
+            )}
           </motion.div>
         </motion.div>
 
