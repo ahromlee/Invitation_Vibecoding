@@ -9,6 +9,15 @@
   font-display: swap;
 }
 
+/* Great Vibes - 우아한 웨딩 스크립트 */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Pinyon Script - 클래식 웨딩 스크립트 */
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+/* Dancing Script - 부드러운 스크립트 */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 /* 교보손글씨 2021 성지영 - 기본 본문용 손글씨 */
 @font-face {
   font-family: 'KyoboHandwriting2021sjy';

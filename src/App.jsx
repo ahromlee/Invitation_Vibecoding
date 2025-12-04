@@ -339,110 +339,104 @@ END:VCALENDAR`;
         }}></div>
         
         {/* 상단: WEDDING INVITATION */}
+        {/* 좌측 세로 텍스트 */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            left: '1rem',
+            top: '50%',
+            transform: 'translateY(-50%) rotate(-90deg)',
+            transformOrigin: 'center',
+            zIndex: 15,
+            whiteSpace: 'nowrap'
+          }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <span style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: '0.65rem',
+            letterSpacing: '0.25em',
+            color: '#6b7280',
+            textTransform: 'uppercase'
+          }}>Share Our Memorable Moment</span>
+        </motion.div>
+
+        {/* 우측 세로 텍스트 */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            right: '1rem',
+            top: '50%',
+            transform: 'translateY(-50%) rotate(90deg)',
+            transformOrigin: 'center',
+            zIndex: 15,
+            whiteSpace: 'nowrap'
+          }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <span style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: '0.65rem',
+            letterSpacing: '0.25em',
+            color: '#6b7280',
+            textTransform: 'uppercase'
+          }}>Wedding Invitation</span>
+        </motion.div>
+
+        {/* 메인 타이틀 영역 */}
         <motion.div
           style={{
             position: 'relative',
             zIndex: 10,
-            paddingTop: '3rem',
-            paddingLeft: '1.5rem',
-            paddingRight: '1.5rem',
+            paddingTop: '2.5rem',
+            paddingLeft: '2.5rem',
+            paddingRight: '2.5rem',
             width: '100%',
             maxWidth: '420px',
-            margin: '0 auto'
+            margin: '0 auto',
+            textAlign: 'center'
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* 상단 장식 라인 */}
-          <motion.div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem',
-              marginBottom: '0.75rem'
-            }}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            <div style={{ 
-              width: '50px', 
-              height: '1px', 
-              background: `linear-gradient(to right, transparent, ${theme.accentSolid})` 
-            }}></div>
-            <span style={{ 
-              fontSize: '0.7rem', 
-              color: theme.accentSolid, 
-              letterSpacing: '0.25em',
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: 'italic',
-              fontWeight: 500
-            }}>WEDDING</span>
-            <div style={{ 
-              width: '50px', 
-              height: '1px', 
-              background: `linear-gradient(to left, transparent, ${theme.accentSolid})` 
-            }}></div>
-          </motion.div>
-
-          {/* 메인 타이틀 */}
+          {/* 메인 스크립트 타이틀 */}
           <motion.div 
             style={{ 
-              fontFamily: "'NanumBrush', 'Suncheon', cursive",
+              fontFamily: "'Great Vibes', 'Pinyon Script', cursive",
               fontSize: '4.5rem', 
-              letterSpacing: '0.1em', 
+              letterSpacing: '0.02em', 
               color: theme.accentSolid, 
               fontWeight: 400,
               textAlign: 'center',
-              lineHeight: 1.15,
-              textShadow: '3px 3px 6px rgba(0,0,0,0.08)',
-              position: 'relative'
+              lineHeight: 1,
+              marginBottom: '0.5rem'
             }}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
-            {config.hero.titleLine1}
-            {config.hero.titleLine2 && (
-              <motion.span
-                style={{ display: 'block' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >{config.hero.titleLine2}</motion.span>
-            )}
+            wedding
           </motion.div>
 
-          {/* 하단 장식 꽃 */}
+          {/* 서브 타이틀 (우리 결혼합니다) */}
           <motion.div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.75rem',
-              marginTop: '0.75rem'
+              fontFamily: "'KyoboHandwriting2021sjy', 'Gowun Dodum', sans-serif",
+              fontSize: '1.1rem',
+              color: '#4b5563',
+              letterSpacing: '0.1em',
+              marginTop: '0.25rem'
             }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span style={{ color: theme.accentSolid, fontSize: '0.875rem', opacity: 0.7 }}>❀</span>
-            <div style={{ 
-              width: '30px', 
-              height: '1px', 
-              background: theme.accentSolid,
-              opacity: 0.4
-            }}></div>
-            <span style={{ color: theme.accentSolid, fontSize: '1rem' }}>✿</span>
-            <div style={{ 
-              width: '30px', 
-              height: '1px', 
-              background: theme.accentSolid,
-              opacity: 0.4
-            }}></div>
-            <span style={{ color: theme.accentSolid, fontSize: '0.875rem', opacity: 0.7 }}>❀</span>
+            {config.hero.titleLine1} {config.hero.titleLine2}
           </motion.div>
         </motion.div>
 
@@ -455,76 +449,88 @@ END:VCALENDAR`;
           justifyContent: 'center',
           position: 'relative',
           zIndex: 10,
-          paddingTop: '5vh'
+          paddingTop: '3vh'
         }}>
-          {/* 이름 */}
+          {/* 이름 (영문 스타일) */}
           <motion.div
             style={{ 
               textAlign: 'center',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem'
+              marginBottom: '1.5rem'
             }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <span style={{ 
-              fontFamily: "'MapoFlowerIsland', 'Gowun Batang', serif",
-              fontSize: '2rem', 
-              fontWeight: 400, 
-              color: '#374151', 
-              letterSpacing: '0.2em'
-            }}>{config.groom.name}</span>
-            <motion.span 
-              style={{ 
-                fontSize: '1.75rem',
-                color: theme.heart,
-                filter: 'drop-shadow(0 0 6px rgba(22, 163, 74, 0.4))'
-              }}
-              animate={{ 
-                scale: [1, 1.15, 1],
-              }}
-              transition={{ 
-                duration: 1.5, 
-                repeat: Infinity,
-                repeatType: 'loop'
-              }}
-            >♥</motion.span>
-            <span style={{ 
-              fontFamily: "'MapoFlowerIsland', 'Gowun Batang', serif",
-              fontSize: '2rem', 
-              fontWeight: 400, 
-              color: '#374151',
-              letterSpacing: '0.2em'
-            }}>{config.bride.name}</span>
-          </motion.div>
-
-          {/* 날짜 + 시간 */}
-          <motion.div
-            style={{
-              textAlign: 'center',
-              marginTop: '1.5rem'
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <div style={{ 
-              fontFamily: "'Gowun Batang', 'Pretendard', sans-serif",
-              fontSize: '1.125rem', 
-              fontWeight: 400,
-              letterSpacing: '0.02em',
+            <div style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.25rem'
+              gap: '1.5rem'
             }}>
-              <span style={{ color: '#374151' }}>{config.wedding.year}</span>
-              <span style={{ color: theme.accentSolid, fontWeight: 700 }}>{config.wedding.monthDay}</span>
-              <span style={{ color: '#374151' }}>{config.wedding.dayOfWeek}</span>
-              <span style={{ color: theme.accentSolid, fontWeight: 700, marginLeft: '0.5rem' }}>{config.wedding.timeText}</span>
+              <span style={{ 
+                fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
+                fontSize: '1.5rem', 
+                fontWeight: 400, 
+                color: '#374151', 
+                letterSpacing: '0.15em'
+              }}>{config.groom.name}</span>
+              <motion.span 
+                style={{ 
+                  fontFamily: "'Great Vibes', cursive",
+                  fontSize: '1.75rem',
+                  color: theme.heart,
+                  fontWeight: 400
+                }}
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  repeatType: 'loop'
+                }}
+              >&</motion.span>
+              <span style={{ 
+                fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
+                fontSize: '1.5rem', 
+                fontWeight: 400, 
+                color: '#374151',
+                letterSpacing: '0.15em'
+              }}>{config.bride.name}</span>
+            </div>
+          </motion.div>
+
+          {/* 날짜 - 큰 숫자 강조 스타일 */}
+          <motion.div
+            style={{
+              textAlign: 'center'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+          >
+            {/* 큰 날짜 */}
+            <div style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: '3.5rem',
+              fontWeight: 300,
+              color: '#1f2937',
+              letterSpacing: '0.05em',
+              lineHeight: 1
+            }}>
+              {config.wedding.monthDay.replace('월 ', '.').replace('일', '')}
+            </div>
+            {/* 요일, 시간 */}
+            <div style={{ 
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: '0.9rem', 
+              fontWeight: 400,
+              letterSpacing: '0.15em',
+              color: '#6b7280',
+              marginTop: '0.5rem',
+              textTransform: 'uppercase'
+            }}>
+              {config.wedding.dayOfWeek.replace('요일', '')}. {config.wedding.timeText}
             </div>
           </motion.div>
 
