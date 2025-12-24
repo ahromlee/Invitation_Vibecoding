@@ -87,7 +87,7 @@ export const config = {
       { first: '륜', rest: '슬처럼 반짝일 우리의 시작에 함께 해주십시오' },
     ],
     poemFont: "'NanumYeDang', sans-serif",
-    poemSize: '0.9375rem',
+    poemSize: '1.05rem',
     
     // D. 픽셀아트
     pixelArt: '/pixel_art.gif',
