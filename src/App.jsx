@@ -108,7 +108,7 @@ function App() {
   };
 
   // 갤러리 이미지 배열
-  const galleryImages = config.gallery.filter(Boolean);
+  const galleryImages = config.gallery.images.filter(Boolean);
 
   // 갤러리 스와이프 핸들러 (터치)
   const handleTouchStart = (e) => {
@@ -202,8 +202,8 @@ function App() {
     
     const event = {
       title: `${config.groom.name} & ${config.bride.name} 결혼식`,
-      description: `${config.venue.name}에서 열리는 결혼식에 초대합니다.`,
-      location: `${config.venue.name} (${config.venue.address})`,
+      description: `${config.location.venue.name}에서 열리는 결혼식에 초대합니다.`,
+      location: `${config.location.venue.name} (${config.location.venue.address})`,
     };
 
     const icsContent = `BEGIN:VCALENDAR
@@ -572,7 +572,7 @@ END:VCALENDAR`;
               }}
             >
               <motion.img 
-                src={config.pixelArt}
+                src={config.greeting.pixelArt}
                 alt="픽셀아트" 
                 style={{
                   maxWidth: '80%',
@@ -603,7 +603,7 @@ END:VCALENDAR`;
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {config.sectionTitles.greeting}
+              {config.greeting.title}
             </motion.h2>
             
             {/* 인사말 텍스트 */}
@@ -715,7 +715,7 @@ END:VCALENDAR`;
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {config.sectionTitles.gallery}
+            {config.gallery.title}
           </motion.h2>
           
           {/* 갤러리 컨테이너 - scroll-linked 효과 적용 */}
@@ -977,7 +977,7 @@ END:VCALENDAR`;
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              {config.sectionTitles.location}
+              {config.location.title}
             </motion.h2>
             
             {/* 장소 정보 - 순차 등장 */}
@@ -995,9 +995,9 @@ END:VCALENDAR`;
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                {config.venue.name} {config.venue.branch}
+                {config.location.venue.name} {config.location.venue.branch}
               </motion.p>
-              {config.venue.hall && (
+              {config.location.venue.hall && (
                 <motion.p 
                   style={{ fontSize: '0.875rem', color: '#6b7280', fontWeight: 300, marginBottom: '0.5rem' }}
                   initial={{ opacity: 0 }}
@@ -1005,7 +1005,7 @@ END:VCALENDAR`;
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.4 }}
                 >
-                  {config.venue.hall}
+                  {config.location.venue.hall}
                 </motion.p>
               )}
               <motion.p 
@@ -1026,9 +1026,9 @@ END:VCALENDAR`;
               >
                 <p style={{ marginBottom: '0.75rem', fontWeight: 400 }}>주소</p>
                 <p style={{ lineHeight: 1.625 }}>
-                  {config.venue.address}<br />
-                  {config.venue.addressDetail && (
-                    <span style={{ color: '#6b7280' }}>{config.venue.addressDetail}</span>
+                  {config.location.venue.address}<br />
+                  {config.location.venue.addressDetail && (
+                    <span style={{ color: '#6b7280' }}>{config.location.venue.addressDetail}</span>
                   )}
                 </p>
               </motion.div>
@@ -1049,7 +1049,7 @@ END:VCALENDAR`;
               transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
             >
               <motion.img 
-                src={config.maps.image}
+                src={config.location.maps.image}
                 alt="오시는 길"
                 style={{
                   width: '100%',
@@ -1137,9 +1137,9 @@ END:VCALENDAR`;
             >
               <motion.a
                 href={
-                  activeMapTab === 'naver' ? config.maps.naver :
-                  activeMapTab === 'kakao' ? config.maps.kakao :
-                  config.maps.tmap
+                  activeMapTab === 'naver' ? config.location.maps.naver :
+                  activeMapTab === 'kakao' ? config.location.maps.kakao :
+                  config.location.maps.tmap
                 }
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1199,7 +1199,7 @@ END:VCALENDAR`;
                 교통편
               </motion.p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem', textAlign: 'center' }}>
-                {config.transportation.map((item, index) => (
+                {config.location.transportation.map((item, index) => (
                   <motion.p 
                     key={index}
                     initial={{ opacity: 0, x: index % 2 === 0 ? -10 : 10 }}
@@ -1211,7 +1211,7 @@ END:VCALENDAR`;
                   </motion.p>
                 ))}
               </div>
-              {config.busInfo && (
+              {config.location.busInfo && (
                 <motion.p 
                   style={{ textAlign: 'center', marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(229, 231, 235, 0.6)' }}
                   initial={{ opacity: 0 }}
@@ -1219,7 +1219,7 @@ END:VCALENDAR`;
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 1.2 }}
                 >
-                  {config.busInfo}
+                  {config.location.busInfo}
                 </motion.p>
               )}
             </motion.div>
@@ -1246,7 +1246,7 @@ END:VCALENDAR`;
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {config.sectionTitles.account}
+            {config.account.title}
           </motion.h2>
           
           <motion.div
@@ -1289,9 +1289,9 @@ END:VCALENDAR`;
               </motion.p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
                 {[
-                  { key: 'groom', label: config.groom.name, role: '신랑', account: config.accounts.groom },
-                  { key: 'groomFather', label: config.groom.fatherName, role: '아버지', account: config.accounts.groomFather },
-                  { key: 'groomMother', label: config.groom.motherName, role: '어머니', account: config.accounts.groomMother },
+                  { key: 'groom', label: config.groom.name, role: '신랑', account: config.account.groom },
+                  { key: 'groomFather', label: config.groom.fatherName, role: '아버지', account: config.account.groomFather },
+                  { key: 'groomMother', label: config.groom.motherName, role: '어머니', account: config.account.groomMother },
                 ].filter(item => item.account?.bank).map((item, idx) => (
                   <motion.button
                     key={item.key}
@@ -1360,9 +1360,9 @@ END:VCALENDAR`;
               </motion.p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
                 {[
-                  { key: 'bride', label: config.bride.name, role: '신부', account: config.accounts.bride },
-                  { key: 'brideFather', label: config.bride.fatherName, role: '아버지', account: config.accounts.brideFather },
-                  { key: 'brideMother', label: config.bride.motherName, role: '어머니', account: config.accounts.brideMother },
+                  { key: 'bride', label: config.bride.name, role: '신부', account: config.account.bride },
+                  { key: 'brideFather', label: config.bride.fatherName, role: '아버지', account: config.account.brideFather },
+                  { key: 'brideMother', label: config.bride.motherName, role: '어머니', account: config.account.brideMother },
                 ].filter(item => item.account?.bank).map((item, idx) => (
                   <motion.button
                     key={item.key}
@@ -1409,12 +1409,12 @@ END:VCALENDAR`;
                 >
                   {(() => {
                     const allAccounts = [
-                      { key: 'groom', label: config.groom.name, role: '신랑', account: config.accounts.groom },
-                      { key: 'groomFather', label: config.groom.fatherName, role: '아버지', account: config.accounts.groomFather },
-                      { key: 'groomMother', label: config.groom.motherName, role: '어머니', account: config.accounts.groomMother },
-                      { key: 'bride', label: config.bride.name, role: '신부', account: config.accounts.bride },
-                      { key: 'brideFather', label: config.bride.fatherName, role: '아버지', account: config.accounts.brideFather },
-                      { key: 'brideMother', label: config.bride.motherName, role: '어머니', account: config.accounts.brideMother },
+                      { key: 'groom', label: config.groom.name, role: '신랑', account: config.account.groom },
+                      { key: 'groomFather', label: config.groom.fatherName, role: '아버지', account: config.account.groomFather },
+                      { key: 'groomMother', label: config.groom.motherName, role: '어머니', account: config.account.groomMother },
+                      { key: 'bride', label: config.bride.name, role: '신부', account: config.account.bride },
+                      { key: 'brideFather', label: config.bride.fatherName, role: '아버지', account: config.account.brideFather },
+                      { key: 'brideMother', label: config.bride.motherName, role: '어머니', account: config.account.brideMother },
                     ];
                     const selected = allAccounts.find(a => a.key === expandedAccount);
                     if (!selected) return null;
