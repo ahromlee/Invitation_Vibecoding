@@ -393,13 +393,14 @@ END:VCALENDAR`;
               textAlign: 'center',
               color: 'white',
               padding: '2rem',
+              marginTop: '-80px',
               y: textY
             }}
           >
             {/* 영문 타이틀 - La Paloma (세로 배치) */}
             <motion.div
               style={{ 
-                marginTop: '-10px',
+                marginTop: '0',
                 marginBottom: '1.5rem',
                 display: 'flex',
                 flexDirection: 'column',
