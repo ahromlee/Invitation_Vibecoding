@@ -393,9 +393,13 @@ END:VCALENDAR`;
               position: 'relative',
               zIndex: 10,
               textAlign: 'center',
-              color: '#3d3a36',
-              padding: '2rem',
-              y: textY
+              color: 'white',
+              padding: '2rem 2.5rem',
+              y: textY,
+              backgroundColor: 'rgba(0,0,0,0.35)',
+              borderRadius: '1rem',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)'
             }}
           >
             {/* 영문 타이틀 - La Paloma (세로 배치) */}
@@ -413,10 +417,10 @@ END:VCALENDAR`;
             >
               <span style={{
                 fontFamily: "'La Paloma', 'Great Vibes', cursive",
-                fontSize: 'clamp(1.4rem, 4.5vw, 2.2rem)',
+                fontSize: 'clamp(1.5rem, 5vw, 2.4rem)',
                 fontWeight: 400,
                 letterSpacing: '0.02em',
-                textShadow: '0 1px 8px rgba(255,255,255,0.5)',
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)',
                 display: 'block',
                 whiteSpace: 'nowrap'
               }}>
@@ -424,19 +428,19 @@ END:VCALENDAR`;
               </span>
               <span style={{
                 fontFamily: "'La Paloma', 'Great Vibes', cursive",
-                fontSize: 'clamp(0.9rem, 2.2vw, 1.3rem)',
+                fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
                 fontWeight: 400,
-                textShadow: '0 1px 8px rgba(255,255,255,0.5)',
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)',
                 display: 'block'
               }}>
                 &
               </span>
               <span style={{
                 fontFamily: "'La Paloma', 'Great Vibes', cursive",
-                fontSize: 'clamp(1.4rem, 4.5vw, 2.2rem)',
+                fontSize: 'clamp(1.5rem, 5vw, 2.4rem)',
                 fontWeight: 400,
                 letterSpacing: '0.02em',
-                textShadow: '0 1px 8px rgba(255,255,255,0.5)',
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)',
                 display: 'block',
                 whiteSpace: 'nowrap'
               }}>
@@ -448,11 +452,11 @@ END:VCALENDAR`;
             <motion.p
               style={{
                 fontFamily: "'NanumMinkyung', 'Pretendard', sans-serif",
-                fontSize: 'clamp(0.9rem, 2.8vw, 1.1rem)',
+                fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
                 fontWeight: 400,
                 letterSpacing: '0.08em',
                 marginBottom: '1.5rem',
-                textShadow: '0 1px 8px rgba(255,255,255,0.5)'
+                textShadow: '0 1px 8px rgba(0,0,0,0.4)'
               }}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -465,11 +469,11 @@ END:VCALENDAR`;
             <motion.div
               style={{
                 fontFamily: "'NanumMinkyung', 'Pretendard', sans-serif",
-                fontSize: 'clamp(1.2rem, 4vw, 1.6rem)',
+                fontSize: 'clamp(1.3rem, 4.5vw, 1.8rem)',
                 fontWeight: 400,
                 letterSpacing: '0.05em',
                 marginBottom: '0.4rem',
-                textShadow: '0 1px 8px rgba(255,255,255,0.5)'
+                textShadow: '0 1px 8px rgba(0,0,0,0.4)'
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -482,10 +486,10 @@ END:VCALENDAR`;
             <motion.p
               style={{
                 fontFamily: "'NanumMinkyung', 'Pretendard', sans-serif",
-                fontSize: 'clamp(0.9rem, 2.8vw, 1.1rem)',
+                fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
                 fontWeight: 400,
                 letterSpacing: '0.03em',
-                textShadow: '0 1px 8px rgba(255,255,255,0.5)'
+                textShadow: '0 1px 8px rgba(0,0,0,0.4)'
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -516,9 +520,10 @@ END:VCALENDAR`;
             <span style={{
               fontFamily: "'Pretendard', sans-serif",
               fontSize: '0.6rem',
-              color: '#5c5955',
+              color: 'rgba(255,255,255,0.9)',
               letterSpacing: '0.25em',
-              fontWeight: 400
+              fontWeight: 400,
+              textShadow: '0 1px 4px rgba(0,0,0,0.3)'
             }}>
               SCROLL
             </span>
@@ -526,7 +531,7 @@ END:VCALENDAR`;
               animate={{ y: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <svg style={{ width: '1rem', height: '1rem', color: '#5c5955' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg style={{ width: '1rem', height: '1rem', color: 'rgba(255,255,255,0.9)', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </motion.div>
