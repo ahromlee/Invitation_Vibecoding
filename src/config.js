@@ -57,23 +57,37 @@ export const config = {
   // 2. 인사말 섹션
   // ============================================================
   greeting: {
-    // A. 타이틀
-    title: '"서로를 비추는 별이 되려 합니다"',
-    titleFont: "'MapoFlowerIsland', 'Gowun Batang', serif",
-    titleSize: '1.5rem',
+    // A. 타이틀 (주석 처리)
+    // title: '"서로를 비추는 별이 되려 합니다"',
+    // titleFont: "'MapoFlowerIsland', 'Gowun Batang', serif",
+    // titleSize: '1.5rem',
     
-    // B. 메인 메시지
-    message: [
-      '각자의 밤 하늘을 수놓던 별빛들이 만나',
-      '서로를 비추는 아름다운 은하수가 되고자 합니다.',
-    ],
-    messageSize: '0.9375rem',
+    // B. 메인 메시지 (주석 처리)
+    // message: [
+    //   '각자의 밤 하늘을 수놓던 별빛들이 만나',
+    //   '서로를 비추는 아름다운 은하수가 되고자 합니다.',
+    // ],
     
-    // C. 서브 메시지
-    subMessage: [
-      '이 설레이는 소중한 시작의 자리에',
-      '귀한 걸음 하시어 저희와 함께 해주세요.',
+    // C. 서브 메시지 (주석 처리)
+    // subMessage: [
+    //   '이 설레이는 소중한 시작의 자리에',
+    //   '귀한 걸음 하시어 저희와 함께 해주세요.',
+    // ],
+    
+    // ★ 육행시 (이아롬 + 신경륜)
+    // 첫 글자가 Bold 처리됨
+    poem: [
+      // 이아로(롬)
+      { first: '이', rest: '토록 고요한 밤하늘 아래' },
+      { first: '아', rest: '스라이 홀로 빛나던 별들이 만나' },
+      { first: '로', rest: '마 신화 속 별자리처럼 함께 하고자 합니다' },
+      // 신경륜
+      { first: '신', rest: '비롭고 설레이는 이 첫걸음의 자리에' },
+      { first: '경', rest: '건한 마음으로 소중한 분들을 초대하오니' },
+      { first: '륜', rest: '슬처럼 반짝일 우리의 시작에 함께 해주십시오' },
     ],
+    poemFont: "'MapoFlowerIsland', 'Gowun Batang', serif",
+    poemSize: '0.9375rem',
     
     // D. 픽셀아트
     pixelArt: '/pixel_art.gif',
