@@ -38,18 +38,19 @@ function App() {
   const galleryOpacity = useTransform(galleryScrollProgress, [0, 0.2, 0.8, 1], [0.6, 1, 1, 0.6]);
   const galleryY = useTransform(galleryScrollProgress, [0, 0.5, 1], [50, 0, -30]);
   
-  // 첫 페이지 Hero 섹션 - 커튼 reveal 효과
+  // 첫 페이지 Hero 섹션 - Zoom out + PNG 마스크 reveal 효과
   const heroRef = useRef(null);
   const { scrollYProgress: heroProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
   
-  // 위에서 아래로 커튼처럼 벗겨지는 효과 (0~60% 구간에서 reveal)
-  const maskY = useTransform(heroProgress, [0, 0.5], [0, 100]);
-  const imageScale = useTransform(heroProgress, [0, 0.5], [1.15, 1]);
-  // 텍스트는 계속 유지 (살짝만 위로 이동)
-  const textY = useTransform(heroProgress, [0.5, 0.8], [0, -30]);
+  // Zoom out 효과: 처음에 확대 → 스크롤하면 전체 이미지로
+  const imageScale = useTransform(heroProgress, [0, 0.6], [1.8, 1]);
+  // 마스크 크기: 0% → 100% (스크롤하면 벗겨짐)
+  const maskSize = useTransform(heroProgress, [0, 0.5], [0, 150]);
+  // 텍스트는 계속 유지
+  const textY = useTransform(heroProgress, [0.6, 0.9], [0, -20]);
 
   // 목차 데이터
   const menuItems = [
@@ -323,11 +324,11 @@ END:VCALENDAR`;
         )}
       </AnimatePresence>
 
-      {/* 커튼 Reveal 효과 - 첫 페이지 */}
+      {/* Zoom Out + 마스크 Reveal 효과 - 첫 페이지 */}
       <section 
         ref={heroRef}
         style={{
-          height: '250vh',
+          height: '300vh',
           position: 'relative'
         }}
       >
@@ -339,15 +340,22 @@ END:VCALENDAR`;
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'hidden',
-          backgroundColor: '#111'
+          backgroundColor: '#0a0a0a'
         }}>
-          {/* 배경 이미지 */}
+          {/* 배경 이미지 - Zoom out 효과 + 마스크 */}
           <motion.div
             style={{
               position: 'absolute',
               width: '100%',
               height: '100%',
-              scale: imageScale
+              scale: imageScale,
+              // PNG 마스크 또는 radial-gradient 마스크
+              WebkitMaskImage: useTransform(maskSize, (size) => 
+                `radial-gradient(circle at 50% 50%, black ${size}%, transparent ${size + 5}%)`
+              ),
+              maskImage: useTransform(maskSize, (size) => 
+                `radial-gradient(circle at 50% 50%, black ${size}%, transparent ${size + 5}%)`
+              )
             }}
           >
             <img 
@@ -357,30 +365,16 @@ END:VCALENDAR`;
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center center'
+                objectPosition: 'center 40%'
               }}
             />
             {/* 이미지 위 오버레이 - 텍스트 가독성 */}
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.35) 100%)'
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.3) 100%)'
             }} />
           </motion.div>
-
-          {/* 커튼 마스크 - 위에서 아래로 걷히는 효과 */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '100%',
-              background: 'linear-gradient(to bottom, #111 0%, #1a1a1a 100%)',
-              y: useTransform(maskY, (y) => `${-y}%`),
-              zIndex: 5
-            }}
-          />
 
           {/* 텍스트 콘텐츠 - 항상 보임 */}
           <motion.div
