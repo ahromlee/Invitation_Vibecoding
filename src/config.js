@@ -33,17 +33,32 @@ export const config = {
   // 1. 첫 페이지 (Hero) - 영문 이름, 날짜, 장소
   // ============================================================
   hero: {
-    // 영문 이름 (La Paloma 폰트)
-    nameEn1: 'Lee Ah-rom',
-    nameEn2: 'Shin Gyeong-ryun',
-    // 한글 초대 문구
-    inviteText: '아롬 ♥ 경륜의 결혼식에 초대합니다',
-    // 날짜/시간
-    dateDisplay: '2026. 4. 18 (Sat) PM 1',
-    // 장소
-    venueShort: '청주 에스가든 웨딩 컨벤션',
     // 배경 이미지
     backgroundImage: '/hero_main.jpg',
+    
+    // --- A. 영문 이름 1 (신랑) ---
+    nameEn1: 'Lee Ah-rom',
+    nameEn1Size: 'clamp(1.5rem, 5vw, 2.4rem)',
+    
+    // --- B. & 기호 ---
+    ampersand: '&',
+    ampersandSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+    
+    // --- C. 영문 이름 2 (신부) ---
+    nameEn2: 'Shin Gyeong-ryun',
+    nameEn2Size: 'clamp(1.5rem, 5vw, 2.4rem)',
+    
+    // --- D. 한글 초대 문구 ---
+    inviteText: '아롬 ♥ 경륜의 결혼식에 초대합니다',
+    inviteTextSize: 'clamp(0.95rem, 3vw, 1.15rem)',
+    
+    // --- E. 날짜/시간 ---
+    dateDisplay: '2026. 4. 18 (Sat) PM 1',
+    dateDisplaySize: 'clamp(1.3rem, 4.5vw, 1.8rem)',
+    
+    // --- F. 장소 ---
+    venueShort: '청주 에스가든 웨딩 컨벤션',
+    venueShortSize: 'clamp(0.95rem, 3vw, 1.15rem)',
   },
 
   // ============================================================

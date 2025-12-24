@@ -412,7 +412,7 @@ END:VCALENDAR`;
             >
               <span style={{
                 fontFamily: "'La Paloma', 'Great Vibes', cursive",
-                fontSize: 'clamp(1.5rem, 5vw, 2.4rem)',
+                fontSize: config.hero.nameEn1Size,
                 fontWeight: 400,
                 letterSpacing: '0.02em',
                 textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)',
@@ -423,16 +423,16 @@ END:VCALENDAR`;
               </span>
               <span style={{
                 fontFamily: "'La Paloma', 'Great Vibes', cursive",
-                fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+                fontSize: config.hero.ampersandSize,
                 fontWeight: 400,
                 textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)',
                 display: 'block'
               }}>
-                &
+                {config.hero.ampersand}
               </span>
               <span style={{
                 fontFamily: "'La Paloma', 'Great Vibes', cursive",
-                fontSize: 'clamp(1.5rem, 5vw, 2.4rem)',
+                fontSize: config.hero.nameEn2Size,
                 fontWeight: 400,
                 letterSpacing: '0.02em',
                 textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)',
@@ -447,7 +447,7 @@ END:VCALENDAR`;
             <motion.p
               style={{
                 fontFamily: "'NanumMinkyung', 'Pretendard', sans-serif",
-                fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
+                fontSize: config.hero.inviteTextSize,
                 fontWeight: 400,
                 letterSpacing: '0.08em',
                 marginBottom: '1.5rem',
@@ -464,7 +464,7 @@ END:VCALENDAR`;
             <motion.div
               style={{
                 fontFamily: "'NanumMinkyung', 'Pretendard', sans-serif",
-                fontSize: 'clamp(1.3rem, 4.5vw, 1.8rem)',
+                fontSize: config.hero.dateDisplaySize,
                 fontWeight: 400,
                 letterSpacing: '0.05em',
                 marginBottom: '0.4rem',
@@ -481,7 +481,7 @@ END:VCALENDAR`;
             <motion.p
               style={{
                 fontFamily: "'NanumMinkyung', 'Pretendard', sans-serif",
-                fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
+                fontSize: config.hero.venueShortSize,
                 fontWeight: 400,
                 letterSpacing: '0.03em',
                 textShadow: '0 2px 15px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.4)'
