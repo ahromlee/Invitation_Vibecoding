@@ -46,9 +46,11 @@ function App() {
   });
   
   // Zoom out 효과: 1.5배 → 1배 (빠르게)
-  const imageScale = useTransform(heroProgress, [0, 0.25], [1.5, 1]);
-  // 마스크 크기: 0%에서 시작 (완전 검은색) → 빠르게 드러남
-  const maskSize = useTransform(heroProgress, [0, 0.25], [0, 200]);
+  const imageScale = useTransform(heroProgress, [0, 0.3], [1.5, 1]);
+  // 마스크 크기: -20%에서 시작 (완전 검은색 보장) → 빠르게 드러남
+  const maskSize = useTransform(heroProgress, [0, 0.3], [-20, 200]);
+  // 검은색 오버레이 투명도: 처음에 완전 불투명 → 스크롤하면 투명
+  const blackOverlayOpacity = useTransform(heroProgress, [0, 0.05], [1, 0]);
   // 텍스트 위치
   const textY = useTransform(heroProgress, [0.5, 0.7], [0, -15]);
 
@@ -238,7 +240,7 @@ END:VCALENDAR`;
   return (
     <div style={{ 
       minHeight: '100vh', 
-      background: 'linear-gradient(to bottom, #F5F0E6, #EDE8DC, #E8E4D9)'
+      background: 'linear-gradient(to bottom, #E8E4DC, #E5E1D8, #E2DED4)'
     }}>
       {/* 이미지 확대 모달 */}
       <AnimatePresence>
@@ -342,6 +344,18 @@ END:VCALENDAR`;
           overflow: 'hidden',
           backgroundColor: '#000000'
         }}>
+          {/* 완전 검은색 오버레이 - 처음에만 보임 */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: '#000000',
+              zIndex: 3,
+              opacity: blackOverlayOpacity,
+              pointerEvents: 'none'
+            }}
+          />
+
           {/* 배경 이미지 - Zoom out 효과 + 마스크 */}
           <motion.div
             style={{
@@ -349,12 +363,12 @@ END:VCALENDAR`;
               width: '100%',
               height: '100%',
               scale: imageScale,
-              // PNG 마스크 또는 radial-gradient 마스크
+              // radial-gradient 마스크
               WebkitMaskImage: useTransform(maskSize, (size) => 
-                `radial-gradient(circle at 50% 50%, black ${size}%, transparent ${size + 5}%)`
+                `radial-gradient(circle at 50% 50%, black ${Math.max(0, size)}%, transparent ${Math.max(0, size) + 8}%)`
               ),
               maskImage: useTransform(maskSize, (size) => 
-                `radial-gradient(circle at 50% 50%, black ${size}%, transparent ${size + 5}%)`
+                `radial-gradient(circle at 50% 50%, black ${Math.max(0, size)}%, transparent ${Math.max(0, size) + 8}%)`
               )
             }}
           >
