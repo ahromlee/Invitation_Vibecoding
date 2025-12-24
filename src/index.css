@@ -1,5 +1,14 @@
 /* ===== 우아하고 세련된 폰트 ===== */
 
+/* La Paloma - 영문 웨딩 타이틀용 */
+@font-face {
+  font-family: 'La Paloma';
+  src: url('/src/font/La Paloma.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* 학교안심 퍼즐 블랙 - 타이틀용 캘리그라피 */
 @font-face {
   font-family: 'HakgyoansimPuzzle';

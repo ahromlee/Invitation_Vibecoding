@@ -26,20 +26,6 @@ function App() {
   const touchStartTime = useRef(0);
   const touchMoved = useRef(false);
   
-  // Hero Section Parallax용 ref와 scroll 값
-  const heroRef = useRef(null);
-  const { scrollYProgress: heroScrollProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-  
-  // Parallax transforms
-  const heroY = useTransform(heroScrollProgress, [0, 1], [0, 150]);
-  const heroOpacity = useTransform(heroScrollProgress, [0, 0.8], [1, 0]);
-  const heroScale = useTransform(heroScrollProgress, [0, 1], [1, 1.1]);
-  const titleY = useTransform(heroScrollProgress, [0, 1], [0, -50]);
-  const contentY = useTransform(heroScrollProgress, [0, 1], [0, 100]);
-  
   // 갤러리 Section scroll-linked zoom
   const galleryRef = useRef(null);
   const { scrollYProgress: galleryScrollProgress } = useScroll({
@@ -52,18 +38,16 @@ function App() {
   const galleryOpacity = useTransform(galleryScrollProgress, [0, 0.2, 0.8, 1], [0.6, 1, 1, 0.6]);
   const galleryY = useTransform(galleryScrollProgress, [0, 0.5, 1], [50, 0, -30]);
   
-  // Apple 스타일 이미지 reveal 섹션
-  const imageRevealRef = useRef(null);
-  const { scrollYProgress: revealProgress } = useScroll({
-    target: imageRevealRef,
-    offset: ["start end", "end start"]
+  // 첫 페이지 Hero 섹션
+  const heroRef = useRef(null);
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
   });
   
-  // 원형 마스크가 점점 커지면서 이미지가 드러나는 효과
-  const clipPathRadius = useTransform(revealProgress, [0, 0.3, 0.7], [0, 50, 150]);
-  const revealScale = useTransform(revealProgress, [0.3, 0.7], [1.2, 1]);
-  const revealTextOpacity = useTransform(revealProgress, [0.5, 0.7], [0, 1]);
-  const revealTextY = useTransform(revealProgress, [0.5, 0.7], [30, 0]);
+  // Hero parallax transforms
+  const heroContentY = useTransform(heroProgress, [0, 1], [0, 100]);
+  const heroOpacity = useTransform(heroProgress, [0, 0.5], [1, 0]);
 
   // 목차 데이터
   const menuItems = [
@@ -337,262 +321,147 @@ END:VCALENDAR`;
         )}
       </AnimatePresence>
 
-      {/* Hero Section */}
+      {/* 새로운 첫 페이지 - Hero Section */}
       <section 
         ref={heroRef}
         style={{
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
           position: 'relative',
           overflow: 'hidden'
         }}
       >
-        {/* Parallax 배경 이미지 */}
-        {config.hero?.useBackgroundImage && (
-          <motion.div 
-            style={{
-              position: 'absolute',
-              inset: 0,
-              display: 'flex',
-              justifyContent: 'center',
-              opacity: config.hero.backgroundOpacity || 0.3,
-              scale: heroScale,
-              y: heroY
-            }}
-          >
-            <div style={{
-              width: 'auto',
-              height: '100%',
-              aspectRatio: '3/4',
-              maxWidth: '100%',
-              backgroundImage: `url(${config.hero.backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center top',
-              backgroundRepeat: 'no-repeat'
-            }}></div>
-          </motion.div>
-        )}
-        <motion.div 
+        {/* 배경 이미지 */}
+        <div 
           style={{
             position: 'absolute',
             inset: 0,
-            background: theme.bgOverlay,
-            opacity: heroOpacity
+            backgroundImage: 'url(/hero_main.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         />
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 50%)'
-        }}></div>
         
-        {/* 메인 타이틀 영역 - Parallax 적용 */}
+        {/* 어두운 오버레이 (텍스트 가독성 향상) */}
+        <div 
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 100%)'
+          }}
+        />
+
+        {/* 메인 콘텐츠 */}
         <motion.div
           style={{
             position: 'relative',
             zIndex: 10,
-            paddingTop: '2.5rem',
-            paddingLeft: '1.5rem',
-            paddingRight: '1.5rem',
-            width: '100%',
-            maxWidth: '420px',
-            margin: '0 auto',
             textAlign: 'center',
-            y: titleY,
+            color: 'white',
+            padding: '2rem',
+            y: heroContentY,
             opacity: heroOpacity
           }}
         >
-          {/* 메인 캘리그라피 타이틀 - 순차 애니메이션 */}
-          <motion.div 
-            style={{ 
-              fontFamily: "'NanumBrush', 'Suncheon', cursive",
-              fontSize: '4rem', 
-              letterSpacing: '0.08em', 
-              color: theme.accentSolid, 
-              fontWeight: 400,
-              textAlign: 'center',
-              lineHeight: 1.2,
-              textShadow: '2px 2px 4px rgba(0,0,0,0.08)'
-            }}
-            initial={{ opacity: 0, y: -40, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ 
-              duration: 1.2, 
-              delay: 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94]
-            }}
-          >
-            {config.hero.titleLine1}
-            {config.hero.titleLine2 && (
-              <motion.span 
-                style={{ display: 'block' }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                {config.hero.titleLine2}
-              </motion.span>
-            )}
-          </motion.div>
-        </motion.div>
-
-        {/* 중앙: 신랑 신부 이름 + 날짜 - Parallax 적용 */}
-        <motion.div 
-          style={{ 
-            flex: 1, 
-            display: 'flex', 
-            flexDirection: 'column',
-            alignItems: 'center', 
-            justifyContent: 'center',
-            position: 'relative',
-            zIndex: 10,
-            y: contentY,
-            opacity: heroOpacity
-          }}
-        >
-          {/* 이름 - 강화된 순차 애니메이션 */}
+          {/* 영문 타이틀 - La Paloma */}
           <motion.div
-            style={{ 
-              textAlign: 'center',
-              marginBottom: '2rem'
+            style={{
+              marginBottom: '1.5rem'
+            }}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          >
+            <span style={{
+              fontFamily: "'La Paloma', 'Great Vibes', cursive",
+              fontSize: '2.5rem',
+              fontWeight: 400,
+              letterSpacing: '0.02em',
+              textShadow: '0 2px 15px rgba(0,0,0,0.4)',
+              display: 'inline'
+            }}>
+              Lee Ah-rom
+            </span>
+            <span style={{
+              fontFamily: "'La Paloma', 'Great Vibes', cursive",
+              fontSize: '1.5rem',
+              fontWeight: 400,
+              letterSpacing: '0.02em',
+              textShadow: '0 2px 15px rgba(0,0,0,0.4)',
+              margin: '0 0.5rem',
+              display: 'inline'
+            }}>
+              &
+            </span>
+            <span style={{
+              fontFamily: "'La Paloma', 'Great Vibes', cursive",
+              fontSize: '2.5rem',
+              fontWeight: 400,
+              letterSpacing: '0.02em',
+              textShadow: '0 2px 15px rgba(0,0,0,0.4)',
+              display: 'inline'
+            }}>
+              Shin Gyeong-ryun
+            </span>
+          </motion.div>
+
+          {/* 한글 초대 문구 - Pretendard */}
+          <motion.p
+            style={{
+              fontFamily: "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif",
+              fontSize: '0.95rem',
+              fontWeight: 400,
+              letterSpacing: '0.08em',
+              marginBottom: '2.5rem',
+              textShadow: '0 1px 10px rgba(0,0,0,0.5)',
+              lineHeight: 1.6
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            이 아롬 신 경륜의 결혼식에 초대합니다.
+          </motion.p>
+
+          {/* 날짜 - Pretendard 매우 선명 */}
+          <motion.div
+            style={{
+              fontFamily: "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif",
+              fontSize: '1.4rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              marginBottom: '0.75rem',
+              textShadow: '0 2px 12px rgba(0,0,0,0.5)'
+            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            2026. 4. 18 (Sat) PM 1
+          </motion.div>
+
+          {/* 장소 - Pretendard */}
+          <motion.p
+            style={{
+              fontFamily: "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif",
+              fontSize: '1rem',
+              fontWeight: 400,
+              letterSpacing: '0.05em',
+              textShadow: '0 1px 10px rgba(0,0,0,0.5)'
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
           >
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem'
-            }}>
-              <motion.span 
-                style={{ 
-                  fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
-                  fontSize: '1.75rem', 
-                  fontWeight: 400, 
-                  color: '#374151', 
-                  letterSpacing: '0.2em'
-                }}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-              >
-                {config.groom.name}
-              </motion.span>
-              <motion.span 
-                style={{ 
-                  fontSize: '1.5rem',
-                  color: theme.heart,
-                  display: 'inline-block'
-                }}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: [0, 1.3, 1],
-                }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 1.6,
-                  ease: "easeOut"
-                }}
-              >
-                <motion.span
-                  animate={{ 
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{ 
-                    duration: 1.5, 
-                    repeat: Infinity,
-                    repeatType: 'loop',
-                    delay: 2.2
-                  }}
-                  style={{ display: 'inline-block' }}
-                >
-                  ♥
-                </motion.span>
-              </motion.span>
-              <motion.span 
-                style={{ 
-                  fontFamily: "'Gowun Batang', 'Nanum Myeongjo', serif",
-                  fontSize: '1.75rem', 
-                  fontWeight: 400, 
-                  color: '#374151',
-                  letterSpacing: '0.2em'
-                }}
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-              >
-                {config.bride.name}
-              </motion.span>
-            </div>
-          </motion.div>
-
-          {/* 날짜 - 순차 fade in */}
-          <motion.div
-            style={{ textAlign: 'center' }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2 }}
-          >
-            {/* 년월일 */}
-            <motion.div 
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: '1.1rem',
-                fontWeight: 400,
-                color: '#6b7280',
-                letterSpacing: '0.1em',
-                marginBottom: '0.25rem'
-              }}
-              initial={{ opacity: 0, letterSpacing: '0.3em' }}
-              animate={{ opacity: 1, letterSpacing: '0.1em' }}
-              transition={{ duration: 1, delay: 2.2 }}
-            >
-              2026. 04. 18
-            </motion.div>
-            {/* 요일 시간 */}
-            <motion.div 
-              style={{ 
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: '0.9rem', 
-                fontWeight: 400,
-                letterSpacing: '0.15em',
-                color: '#9ca3af'
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 2.5 }}
-            >
-              SAT. PM 1:00
-            </motion.div>
-          </motion.div>
-
-          {/* 장소 */}
-          <motion.div
-            style={{
-              textAlign: 'center',
-              marginTop: '1.5rem'
-            }}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.8 }}
-          >
-            <div style={{ 
-              fontFamily: "'KyoboHandwriting2021sjy', 'Gowun Dodum', sans-serif",
-              fontSize: '0.95rem', 
-              color: '#4b5563', 
-              fontWeight: 400,
-              letterSpacing: '0.05em'
-            }}>
-              {config.venue.name} {config.venue.branch}
-            </div>
-          </motion.div>
+            청주 에스가든 웨딩 컨벤션
+          </motion.p>
         </motion.div>
 
-        {/* 스크롤 화살표 - 강화된 bounce 애니메이션 */}
+        {/* 스크롤 화살표 */}
         <motion.div
           style={{
             position: 'absolute',
@@ -607,14 +476,16 @@ END:VCALENDAR`;
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3.2, duration: 0.8 }}
+          transition={{ delay: 2.2, duration: 0.8 }}
         >
           <motion.span
             style={{
+              fontFamily: "'Pretendard', sans-serif",
               fontSize: '0.7rem',
-              color: '#9ca3af',
+              color: 'rgba(255,255,255,0.8)',
               letterSpacing: '0.15em',
-              fontWeight: 300
+              fontWeight: 300,
+              textShadow: '0 1px 5px rgba(0,0,0,0.3)'
             }}
           >
             SCROLL
@@ -630,126 +501,11 @@ END:VCALENDAR`;
               ease: "easeInOut"
             }}
           >
-            <svg style={{ width: '1.5rem', height: '1.5rem', color: '#9ca3af' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg style={{ width: '1.5rem', height: '1.5rem', color: 'rgba(255,255,255,0.8)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* Apple 스타일 이미지 Reveal 섹션 */}
-      <section 
-        ref={imageRevealRef}
-        style={{
-          height: '200vh', // 스크롤 공간 확보
-          position: 'relative'
-        }}
-      >
-        <div style={{
-          position: 'sticky',
-          top: 0,
-          height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-          background: theme.bgGradient
-        }}>
-          {/* 원형 마스크로 드러나는 이미지 */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              clipPath: useTransform(clipPathRadius, (r) => `circle(${r}% at 50% 50%)`),
-              scale: revealScale
-            }}
-          >
-            <div style={{
-              width: '100%',
-              height: '100%',
-              maxWidth: '500px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <img 
-                src={config.gallery[0] || '/gallery_1.jpg'}
-                alt="우리의 순간"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center'
-                }}
-              />
-            </div>
-          </motion.div>
-          
-          {/* 이미지 위에 오버레이 텍스트 */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              zIndex: 10,
-              textAlign: 'center',
-              color: 'white',
-              opacity: revealTextOpacity,
-              y: revealTextY,
-              textShadow: '0 2px 20px rgba(0,0,0,0.5)'
-            }}
-          >
-            <motion.p
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: '0.875rem',
-                letterSpacing: '0.3em',
-                marginBottom: '1rem',
-                fontWeight: 300
-              }}
-            >
-              OUR MOMENT
-            </motion.p>
-            <motion.h2
-              style={{
-                fontFamily: "'MapoFlowerIsland', 'Gowun Batang', serif",
-                fontSize: '2rem',
-                fontWeight: 400,
-                letterSpacing: '0.1em',
-                lineHeight: 1.4
-              }}
-            >
-              소중한 순간을<br />함께해 주세요
-            </motion.h2>
-          </motion.div>
-
-          {/* 스크롤 진행률 표시 (선택) */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              bottom: '2rem',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '60px',
-              height: '3px',
-              backgroundColor: 'rgba(255,255,255,0.2)',
-              borderRadius: '2px',
-              overflow: 'hidden'
-            }}
-          >
-            <motion.div
-              style={{
-                height: '100%',
-                backgroundColor: 'white',
-                borderRadius: '2px',
-                scaleX: revealProgress,
-                transformOrigin: 'left'
-              }}
-            />
-          </motion.div>
-        </div>
       </section>
 
       {/* 인사말 Section */}
