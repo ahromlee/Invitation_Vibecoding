@@ -51,6 +51,19 @@ function App() {
   const galleryScale = useTransform(galleryScrollProgress, [0, 0.3, 0.7, 1], [0.85, 1, 1, 0.95]);
   const galleryOpacity = useTransform(galleryScrollProgress, [0, 0.2, 0.8, 1], [0.6, 1, 1, 0.6]);
   const galleryY = useTransform(galleryScrollProgress, [0, 0.5, 1], [50, 0, -30]);
+  
+  // Apple 스타일 이미지 reveal 섹션
+  const imageRevealRef = useRef(null);
+  const { scrollYProgress: revealProgress } = useScroll({
+    target: imageRevealRef,
+    offset: ["start end", "end start"]
+  });
+  
+  // 원형 마스크가 점점 커지면서 이미지가 드러나는 효과
+  const clipPathRadius = useTransform(revealProgress, [0, 0.3, 0.7], [0, 50, 150]);
+  const revealScale = useTransform(revealProgress, [0.3, 0.7], [1.2, 1]);
+  const revealTextOpacity = useTransform(revealProgress, [0.5, 0.7], [0, 1]);
+  const revealTextY = useTransform(revealProgress, [0.5, 0.7], [30, 0]);
 
   // 목차 데이터
   const menuItems = [
@@ -622,6 +635,121 @@ END:VCALENDAR`;
             </svg>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Apple 스타일 이미지 Reveal 섹션 */}
+      <section 
+        ref={imageRevealRef}
+        style={{
+          height: '200vh', // 스크롤 공간 확보
+          position: 'relative'
+        }}
+      >
+        <div style={{
+          position: 'sticky',
+          top: 0,
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          background: theme.bgGradient
+        }}>
+          {/* 원형 마스크로 드러나는 이미지 */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              clipPath: useTransform(clipPathRadius, (r) => `circle(${r}% at 50% 50%)`),
+              scale: revealScale
+            }}
+          >
+            <div style={{
+              width: '100%',
+              height: '100%',
+              maxWidth: '500px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <img 
+                src={config.gallery[0] || '/gallery_1.jpg'}
+                alt="우리의 순간"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center'
+                }}
+              />
+            </div>
+          </motion.div>
+          
+          {/* 이미지 위에 오버레이 텍스트 */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              zIndex: 10,
+              textAlign: 'center',
+              color: 'white',
+              opacity: revealTextOpacity,
+              y: revealTextY,
+              textShadow: '0 2px 20px rgba(0,0,0,0.5)'
+            }}
+          >
+            <motion.p
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: '0.875rem',
+                letterSpacing: '0.3em',
+                marginBottom: '1rem',
+                fontWeight: 300
+              }}
+            >
+              OUR MOMENT
+            </motion.p>
+            <motion.h2
+              style={{
+                fontFamily: "'MapoFlowerIsland', 'Gowun Batang', serif",
+                fontSize: '2rem',
+                fontWeight: 400,
+                letterSpacing: '0.1em',
+                lineHeight: 1.4
+              }}
+            >
+              소중한 순간을<br />함께해 주세요
+            </motion.h2>
+          </motion.div>
+
+          {/* 스크롤 진행률 표시 (선택) */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              bottom: '2rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '3px',
+              backgroundColor: 'rgba(255,255,255,0.2)',
+              borderRadius: '2px',
+              overflow: 'hidden'
+            }}
+          >
+            <motion.div
+              style={{
+                height: '100%',
+                backgroundColor: 'white',
+                borderRadius: '2px',
+                scaleX: revealProgress,
+                transformOrigin: 'left'
+              }}
+            />
+          </motion.div>
+        </div>
       </section>
 
       {/* 인사말 Section */}
