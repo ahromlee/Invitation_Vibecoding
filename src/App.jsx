@@ -135,8 +135,8 @@ function App() {
       
       // Hero 페이지 내에 있고, 초기 상태(0)도 끝 상태도 아닌 경우
       if (!heroCompleted && scrollY > 10 && scrollY < end - 10) {
-        // 끝 상태로 스무스 스크롤 (750ms = 기존의 약 1.5배)
-        smoothScrollTo(end, 750);
+        // 끝 상태로 스무스 스크롤 (1250ms = 기존의 약 2.5배)
+        smoothScrollTo(end, 1250);
       }
     };
     
