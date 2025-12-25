@@ -65,21 +65,30 @@ export const config = {
     titleFont: "'MapoFlowerIsland', 'Gowun Batang', serif",
     titleSize: '1.5rem',
     
-    // ★ 육행시 (이아롬 + 신경륜)
-    // 첫 글자가 Bold 처리됨
-    poem: [
-      // 이아로(롬)
-      { first: '이', rest: '렇게 우리 두 사람이' },
-      { first: '아', rest: '름다운 만남을 시작했습니다' },
-      { first: '롬', rest: '륜 커플이' },
-      // 신경륜
-      { first: '신', rest: '혼을 시작하려고 합니다' },
-      { first: '경', rest: '사로운 날을 축하해주시고' },
-      { first: '륜', rest: '택한 삶을 만들어가겠습니다' },
+    // B. 인사말 메시지
+    message: [
+      '소중한 분들을 모시고',
+      '따사로운 봄날에 결혼합니다.',
     ],
+    subMessage: [
+      '부디 귀한 걸음 함께 하시어',
+      '축복해주시면 감사하겠습니다.',
+    ],
+    messageFont: "'KoPubWorldDotum', sans-serif",
+    messageSize: '1rem',
+    messageColor: '#8B6D4C',
     
-    poemFont: "'NanumYeDang', sans-serif",
-    poemSize: '1.05rem',
+    // ★ 육행시 (주석처리)
+    // poem: [
+    //   { first: '이', rest: '렇게 우리 두 사람이' },
+    //   { first: '아', rest: '름다운 만남을 시작했습니다' },
+    //   { first: '롬', rest: '륜 커플이' },
+    //   { first: '신', rest: '혼을 시작하려고 합니다' },
+    //   { first: '경', rest: '사로운 날을 축하해주시고' },
+    //   { first: '륜', rest: '택한 삶을 만들어가겠습니다' },
+    // ],
+    // poemFont: "'NanumYeDang', sans-serif",
+    // poemSize: '1.05rem',
   },
 
   // ============================================================

@@ -768,62 +768,50 @@ END:VCALENDAR`;
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* 육행시 (이아롬 + 신경륜) */}
+            {/* 인사말 메시지 */}
             <div style={{ 
               display: 'flex',
               flexDirection: 'column',
               gap: '1.5rem',
-              color: '#4b5563',
-              lineHeight: 2,
-              fontSize: config.greeting.poemSize,
-              fontFamily: config.greeting.poemFont,
               textAlign: 'center'
             }}>
-              {/* 이아로(롬) - 첫 3행 */}
-              <div style={{ fontWeight: 300 }}>
-                {config.greeting.poem.slice(0, 3).map((line, i) => (
-                  <motion.p 
-                    key={i}
-                    style={{ marginBottom: '0.35rem' }}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ 
-                      duration: 0.5, 
-                      delay: 0.3 + (i * 0.12),
-                      ease: "easeOut"
-                    }}
-                  >
-                    <span style={{ 
-                      color: theme.accentSolid,
-                      fontSize: '1.2em'
-                    }}>{line.first}</span>{line.rest}
-                  </motion.p>
+              {/* 메인 메시지 */}
+              <motion.div 
+                style={{ 
+                  fontFamily: config.greeting.messageFont,
+                  fontSize: config.greeting.messageSize,
+                  color: config.greeting.messageColor,
+                  lineHeight: 1.8,
+                  fontWeight: 300
+                }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {config.greeting.message.map((line, i) => (
+                  <p key={i} style={{ marginBottom: '0.25rem' }}>{line}</p>
                 ))}
-              </div>
+              </motion.div>
               
-              {/* 신경륜 - 다음 3행 */}
-              <div style={{ fontWeight: 300 }}>
-                {config.greeting.poem.slice(3, 6).map((line, i) => (
-                  <motion.p 
-                    key={i}
-                    style={{ marginBottom: '0.35rem' }}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ 
-                      duration: 0.5, 
-                      delay: 0.6 + (i * 0.12),
-                      ease: "easeOut"
-                    }}
-                  >
-                    <span style={{ 
-                      color: theme.accentSolid,
-                      fontSize: '1.2em'
-                    }}>{line.first}</span>{line.rest}
-                  </motion.p>
+              {/* 서브 메시지 */}
+              <motion.div 
+                style={{ 
+                  fontFamily: config.greeting.messageFont,
+                  fontSize: config.greeting.messageSize,
+                  color: config.greeting.messageColor,
+                  lineHeight: 1.8,
+                  fontWeight: 300
+                }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                {config.greeting.subMessage.map((line, i) => (
+                  <p key={i} style={{ marginBottom: '0.25rem' }}>{line}</p>
                 ))}
-              </div>
+              </motion.div>
             </div>
             
             {/* 부모님 소개 */}
