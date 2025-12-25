@@ -90,14 +90,12 @@ function App() {
   }, []);
 
   // Hero 페이지 자동 스크롤
-  const [heroCompleted, setHeroCompleted] = useState(false);
+  const heroCompletedRef = useRef(false);
   const isAnimatingRef = useRef(false);
-  const animationIdRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
   
   useEffect(() => {
-    let scrollTimeout;
-    
-    const heroEnd = () => window.innerHeight;
+    const heroEnd = window.innerHeight;
     
     // 커스텀 스무스 스크롤 (2초, 등속)
     const smoothScrollTo = (targetY) => {
@@ -107,33 +105,34 @@ function App() {
       const duration = 2000; // 2초
       const startY = window.scrollY;
       const distance = targetY - startY;
-      const startTime = performance.now();
+      let startTime = null;
       
       const animate = (currentTime) => {
+        if (!startTime) startTime = currentTime;
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         
         window.scrollTo(0, startY + distance * progress);
         
         if (progress < 1) {
-          animationIdRef.current = requestAnimationFrame(animate);
+          requestAnimationFrame(animate);
         } else {
-          animationIdRef.current = null;
           isAnimatingRef.current = false;
-          setHeroCompleted(true);
+          heroCompletedRef.current = true;
         }
       };
       
-      animationIdRef.current = requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
     };
     
     const handleScrollEnd = () => {
+      if (isAnimatingRef.current) return;
+      
       const scrollY = window.scrollY;
-      const end = heroEnd();
       
       // Hero 페이지 내에 있고, 중간 상태인 경우 자동 스크롤
-      if (!heroCompleted && !isAnimatingRef.current && scrollY > 10 && scrollY < end - 10) {
-        smoothScrollTo(end);
+      if (!heroCompletedRef.current && scrollY > 10 && scrollY < heroEnd - 10) {
+        smoothScrollTo(heroEnd);
       }
     };
     
@@ -142,32 +141,28 @@ function App() {
       if (isAnimatingRef.current) return;
       
       const scrollY = window.scrollY;
-      const end = heroEnd();
       
       // 맨 위로 돌아오면 리셋
       if (scrollY <= 5) {
-        setHeroCompleted(false);
+        heroCompletedRef.current = false;
       }
       
-      // Hero 끝에 도달하면 완료 표시 (수동 스크롤로 도달한 경우만)
-      if (scrollY >= end - 5) {
-        setHeroCompleted(true);
+      // Hero 끝에 도달하면 완료 표시
+      if (scrollY >= heroEnd - 5) {
+        heroCompletedRef.current = true;
       }
       
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(handleScrollEnd, 50);
+      clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(handleScrollEnd, 50);
     };
     
     window.addEventListener('scroll', onScroll, { passive: true });
     
     return () => {
       window.removeEventListener('scroll', onScroll);
-      clearTimeout(scrollTimeout);
-      if (animationIdRef.current) {
-        cancelAnimationFrame(animationIdRef.current);
-      }
+      clearTimeout(scrollTimeoutRef.current);
     };
-  }, [heroCompleted]);
+  }, []); // 빈 dependency - 한 번만 실행
 
   // 계좌번호 복사 함수
   const copyToClipboard = (text, type) => {
