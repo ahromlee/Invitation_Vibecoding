@@ -509,7 +509,7 @@ END:VCALENDAR`;
             }}
           />
 
-          {/* 배경 이미지 - Zoom out 효과 + 3개의 먹물 번짐 마스크 */}
+          {/* 배경 이미지 - Zoom out + 3개의 먹물 번짐 마스크 */}
           <motion.div
             style={{
               position: 'absolute',
