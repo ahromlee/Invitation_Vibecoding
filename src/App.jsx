@@ -89,80 +89,42 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // Hero 페이지 자동 스크롤
-  const heroCompletedRef = useRef(false);
-  const isAnimatingRef = useRef(false);
-  const scrollTimeoutRef = useRef(null);
+  // Hero 자동 스크롤 (페이지 로드 시 2.5초에 걸쳐 자동 스크롤)
+  const [introComplete, setIntroComplete] = useState(false);
   
   useEffect(() => {
+    // 스크롤 금지
+    document.body.style.overflow = 'hidden';
+    
     const heroEnd = window.innerHeight;
+    const duration = 2500; // 2.5초
+    let startTime = null;
     
-    // 커스텀 스무스 스크롤 (2초, 등속)
-    const smoothScrollTo = (targetY) => {
-      if (isAnimatingRef.current) return;
-      isAnimatingRef.current = true;
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
       
-      const duration = 2000; // 2초
-      const startY = window.scrollY;
-      const distance = targetY - startY;
-      let startTime = null;
+      // easeOutCubic for smooth deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, heroEnd * eased);
       
-      const animate = (currentTime) => {
-        if (!startTime) startTime = currentTime;
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        window.scrollTo(0, startY + distance * progress);
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          isAnimatingRef.current = false;
-          heroCompletedRef.current = true;
-        }
-      };
-      
-      requestAnimationFrame(animate);
-    };
-    
-    const handleScrollEnd = () => {
-      if (isAnimatingRef.current) return;
-      
-      const scrollY = window.scrollY;
-      
-      // Hero 페이지 내에 있고, 중간 상태인 경우 자동 스크롤
-      if (!heroCompletedRef.current && scrollY > 10 && scrollY < heroEnd - 10) {
-        smoothScrollTo(heroEnd);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        // 애니메이션 완료 - 스크롤 허용
+        document.body.style.overflow = '';
+        setIntroComplete(true);
       }
     };
     
-    const onScroll = () => {
-      // 애니메이션 중에는 아무것도 안 함
-      if (isAnimatingRef.current) return;
-      
-      const scrollY = window.scrollY;
-      
-      // 맨 위로 돌아오면 리셋
-      if (scrollY <= 5) {
-        heroCompletedRef.current = false;
-      }
-      
-      // Hero 끝에 도달하면 완료 표시
-      if (scrollY >= heroEnd - 5) {
-        heroCompletedRef.current = true;
-      }
-      
-      clearTimeout(scrollTimeoutRef.current);
-      scrollTimeoutRef.current = setTimeout(handleScrollEnd, 50);
-    };
-    
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // 페이지 로드 후 바로 시작
+    requestAnimationFrame(animate);
     
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      clearTimeout(scrollTimeoutRef.current);
+      document.body.style.overflow = '';
     };
-  }, []); // 빈 dependency - 한 번만 실행
+  }, []);
 
   // 계좌번호 복사 함수
   const copyToClipboard = (text, type) => {
