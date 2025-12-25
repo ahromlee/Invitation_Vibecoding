@@ -440,7 +440,7 @@ END:VCALENDAR`;
               style={{
                 fontFamily: config.hero.inviteTextFont,
                 fontSize: config.hero.inviteTextSize,
-                fontWeight: 400,
+                fontWeight: config.hero.inviteTextWeight,
                 letterSpacing: '0.08em',
                 marginBottom: '1.5rem',
                 textShadow: '0 2px 15px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.4)'
@@ -457,7 +457,7 @@ END:VCALENDAR`;
               style={{
                 fontFamily: config.hero.dateDisplayFont,
                 fontSize: config.hero.dateDisplaySize,
-                fontWeight: 400,
+                fontWeight: config.hero.dateDisplayWeight,
                 letterSpacing: '0.05em',
                 marginBottom: '0.4rem',
                 textShadow: '0 2px 15px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.4)'
@@ -474,7 +474,7 @@ END:VCALENDAR`;
               style={{
                 fontFamily: config.hero.venueShortFont,
                 fontSize: config.hero.venueShortSize,
-                fontWeight: 400,
+                fontWeight: config.hero.venueShortWeight,
                 letterSpacing: '0.03em',
                 textShadow: '0 2px 15px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.4)'
               }}

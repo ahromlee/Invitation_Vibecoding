@@ -36,18 +36,21 @@ export const config = {
     
     // D. 한글 초대 문구
     inviteText: '아롬 ♥ 경륜의 결혼식에 초대합니다',
-    inviteTextFont: "'NanumMinkyung', 'Pretendard', sans-serif",
+    inviteTextFont: "'KoPubWorldDotum', sans-serif",
     inviteTextSize: 'clamp(18px, 3vw, 20px)',
+    inviteTextWeight: 300,
     
     // E. 날짜
     dateDisplay: '2026. 4. 18 (토) 오후 1시',
-    dateDisplayFont: "'NanumMinkyung', 'Pretendard', sans-serif",
+    dateDisplayFont: "'KoPubWorldDotum', sans-serif",
     dateDisplaySize: 'clamp(24px, 4.5vw, 29px)',
+    dateDisplayWeight: 300,
     
     // F. 장소
     venueShort: '청주 에스가든 웨딩 컨벤션',
-    venueShortFont: "'NanumMinkyung', 'Pretendard', sans-serif",
+    venueShortFont: "'KoPubWorldDotum', sans-serif",
     venueShortSize: 'clamp(21px, 3vw, 24px)',
+    venueShortWeight: 300,
     
     // G. 스크롤 안내
     scrollText: 'SCROLL',
