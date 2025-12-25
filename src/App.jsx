@@ -160,7 +160,7 @@ function App() {
       }
       
       clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(handleScrollEnd, 100);
+      scrollTimeout = setTimeout(handleScrollEnd, 30);
     };
     
     // wheel/touch 이벤트로 스크롤 제한
