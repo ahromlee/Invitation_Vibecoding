@@ -817,7 +817,7 @@ END:VCALENDAR`;
                     width: '100%',
                     height: '125%',
                     objectFit: 'cover',
-                    objectPosition: 'center 5%',
+                    objectPosition: 'center top',
                     position: 'absolute',
                     top: '-12.5%'
                   }}
