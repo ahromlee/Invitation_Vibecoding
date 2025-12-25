@@ -212,32 +212,40 @@ export const config = {
       bank: '신한은행',
       accountNumber: '110-482-263062',
       holder: '이아롬',
+      phone: '010-2286-0608',
     },
     groomFather: {
       bank: '농협',
       accountNumber: '246-02-228936',
       holder: '이원조',
+      phone: '010-5652-0359',
     },
     groomMother: {
       bank: '농협',
       accountNumber: '246-02-138021',
       holder: '이점숙',
+      phone: '010-5190-0359',
     },
     bride: {
       bank: '국민은행',
       accountNumber: '746702-01-202912',
       holder: '신경륜',
+      phone: '010-5385-8717',
     },
     brideFather: {
       bank: '농협',
       accountNumber: '401145-51-016954',
       holder: '신락현',
+      phone: '010-3909-7045',
     },
     brideMother: {
       bank: '우리',
       accountNumber: '2761-9679-502001',
       holder: '곽광숙',
+      phone: '010-8359-6774',
     },
+    
+    callButton: '📞 전화하기',
   },
 
   // ============================================================

@@ -1609,27 +1609,58 @@ END:VCALENDAR`;
                         <p style={{ fontSize: '0.875rem', color: '#374151', fontWeight: 500, marginBottom: '0.75rem' }}>
                           {selected.role} {selected.label}
                         </p>
+                        
+                        {/* 계좌 정보 */}
                         <p style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.25rem' }}>{selected.account.bank}</p>
                         <p style={{ fontSize: '1.0625rem', color: '#1f2937', fontWeight: 600, marginBottom: '0.25rem', letterSpacing: '0.05em' }}>
                           {selected.account.accountNumber}
                         </p>
-                        <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '1rem' }}>{config.account.holderLabel}: {selected.account.holder}</p>
-                        <button
-                          onClick={() => copyToClipboard(`${selected.account.bank} ${selected.account.accountNumber} ${selected.account.holder}`, selected.key)}
-                          style={{
-                            width: '100%',
-                            backgroundColor: theme.accentSolid,
-                            color: 'white',
-                            borderRadius: '0.5rem',
-                            padding: '0.75rem',
-                            fontSize: '0.875rem',
-                            fontWeight: 500,
-                            border: 'none',
-                            cursor: 'pointer'
-                          }}
-                        >
-                          {copied[expandedAccount] ? config.account.copyComplete : config.account.copyButton}
-                        </button>
+                        <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '0.75rem' }}>{config.account.holderLabel}: {selected.account.holder}</p>
+                        
+                        {/* 버튼들 */}
+                        <div style={{ display: 'flex', gap: '0.5rem' }}>
+                          {/* 계좌번호 복사 버튼 */}
+                          <button
+                            onClick={() => copyToClipboard(`${selected.account.bank} ${selected.account.accountNumber} ${selected.account.holder}`, selected.key)}
+                            style={{
+                              flex: 1,
+                              backgroundColor: theme.accentSolid,
+                              color: 'white',
+                              borderRadius: '0.5rem',
+                              padding: '0.75rem',
+                              fontSize: '0.875rem',
+                              fontWeight: 500,
+                              border: 'none',
+                              cursor: 'pointer'
+                            }}
+                          >
+                            {copied[expandedAccount] ? config.account.copyComplete : config.account.copyButton}
+                          </button>
+                          
+                          {/* 전화하기 버튼 */}
+                          {selected.account.phone && (
+                            <a
+                              href={`tel:${selected.account.phone.replace(/-/g, '')}`}
+                              style={{
+                                flex: 1,
+                                backgroundColor: '#4ade80',
+                                color: 'white',
+                                borderRadius: '0.5rem',
+                                padding: '0.75rem',
+                                fontSize: '0.875rem',
+                                fontWeight: 500,
+                                border: 'none',
+                                cursor: 'pointer',
+                                textDecoration: 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                              }}
+                            >
+                              {config.account.callButton}
+                            </a>
+                          )}
+                        </div>
                       </div>
                     );
                   })()}
