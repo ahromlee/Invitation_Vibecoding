@@ -150,7 +150,7 @@ function App() {
       }
       
       // 스토퍼: Hero 완료 전에는 heroEnd를 넘지 못하게
-      if (!heroCompleted && scrollY > end) {
+      if (!heroCompleted && scrollY > end + 50) {
         window.scrollTo({ top: end, behavior: 'auto' });
         setHeroCompleted(true);
         return;
@@ -168,7 +168,7 @@ function App() {
       const end = heroEnd();
       
       // Hero 끝을 넘으려고 할 때 막기
-      if (scrollY >= end - 5) {
+      if (scrollY >= end) {
         e.preventDefault();
         window.scrollTo({ top: end, behavior: 'auto' });
         setHeroCompleted(true);
