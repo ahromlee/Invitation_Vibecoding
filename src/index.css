@@ -9,25 +9,17 @@
   font-display: swap;
 }
 
-/* 나눔손글씨 예당체 - 선명한 한글 */
+
+/* KoPubWorld Dotum - Light (서브셋 WOFF2 - 14KB) */
 @font-face {
-  font-family: 'NanumYeDang';
-  src: url('/fonts/나눔손글씨 예당체.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'KoPubWorldDotum';
+  src: url('/fonts/subset-KoPubWorldDotumLight.woff2') format('woff2');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
-/* 나눔손글씨 예쁜 민경체 */
-@font-face {
-  font-family: 'NanumMinkyung';
-  src: url('/fonts/나눔손글씨 예쁜 민경체.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* KoPubWorld Dotum - Light */
+/* KoPubWorld Dotum - Light (원본 TTF - 5MB) - 백업용
 @font-face {
   font-family: 'KoPubWorldDotum';
   src: url('/fonts/KoPubWorld Dotum Light.ttf') format('truetype');
@@ -35,24 +27,8 @@
   font-style: normal;
   font-display: swap;
 }
+*/
 
-/* KoPubWorld Dotum - Medium */
-@font-face {
-  font-family: 'KoPubWorldDotum';
-  src: url('/fonts/KoPubWorld Dotum Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* KoPubWorld Dotum - Bold */
-@font-face {
-  font-family: 'KoPubWorldDotum';
-  src: url('/fonts/KoPubWorld Dotum Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* 학교안심 퍼즐 블랙 - 타이틀용 캘리그라피 */
 @font-face {
