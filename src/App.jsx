@@ -60,6 +60,8 @@ const CherryBlossomPetal = ({ id, config: petalConfig }) => {
       midY,
       curveY,
       duration: random(petalConfig.duration.min, petalConfig.duration.max),
+      // 각 벚꽃잎이 순차적으로 떨어지도록 id 기반으로 delay 계산
+      delay: id * (petalConfig.delay.max / petalConfig.count) + random(0, 2),
       rotation: random(petalConfig.rotation.min, petalConfig.rotation.max),
       size: random(petalConfig.size.min, petalConfig.size.max),
     };
@@ -100,9 +102,10 @@ const CherryBlossomPetal = ({ id, config: petalConfig }) => {
       }}
       transition={{
         duration: randomValues.duration,
+        delay: randomValues.delay,
         repeat: Infinity,
         ease: [0.4, 0, 0.6, 1], // 부드러운 대각선 곡선
-        repeatDelay: 0,
+        repeatDelay: randomValues.delay, // 반복 시에도 지연 적용하여 순차적으로 떨어지도록
       }}
     />
   );

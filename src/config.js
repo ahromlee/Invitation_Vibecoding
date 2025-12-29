@@ -280,14 +280,18 @@ export const config = {
       '/SakuraPetals02.png',
       '/SakuraPetals03.png',
     ],
-    count: 3,                         // 고정된 벚꽃잎 개수 (2~4개)
+    count: 2,                         // 고정된 벚꽃잎 개수 (1~2개)
     size: {                           // 벚꽃잎 크기 (px)
       min: 20,
       max: 40,
     },
     duration: {                       // 떨어지는 시간 (초)
-      min: 15,
-      max: 25,
+      min: 20,
+      max: 30,
+    },
+    delay: {                          // 시작 지연 시간 (초) - 각 벚꽃잎이 순차적으로 떨어지도록
+      min: 0,
+      max: 15,
     },
     curveRandomness: {                // 곡선 랜덤성 (px)
       min: 30,
