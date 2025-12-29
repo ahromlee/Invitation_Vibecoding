@@ -270,36 +270,4 @@ export const config = {
     showRepository: true,
   },
 
-  // ============================================================
-  // 10. 벚꽃잎 효과 (Cherry Blossom Effect)
-  // ============================================================
-  cherryBlossom: {
-    enabled: true,                    // 효과 활성화 여부
-    petalImages: [                    // 벚꽃잎 이미지 파일들
-      '/SakuraPetals01.png',
-      '/SakuraPetals02.png',
-      '/SakuraPetals03.png',
-    ],
-    count: 3,                         // 고정된 벚꽃잎 개수 (2~4개)
-    size: {                           // 벚꽃잎 크기 (px)
-      min: 20,
-      max: 40,
-    },
-    duration: {                       // 떨어지는 시간 (초)
-      min: 20,
-      max: 30,
-    },
-    delay: {                          // 시작 지연 시간 (초) - 각 벚꽃잎이 순차적으로 떨어지도록
-      min: 0,
-      max: 15,
-    },
-    curveRandomness: {                // 곡선 랜덤성 (px)
-      min: 30,
-      max: 80,
-    },
-    rotation: {                       // 회전 범위 (도)
-      min: -360,
-      max: 360,
-    },
-  },
 };
