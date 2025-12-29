@@ -19,6 +19,103 @@ const preventImageActions = (e) => {
   }
 };
 
+// 벚꽃잎 컴포넌트
+const CherryBlossomPetal = ({ index, config: petalConfig }) => {
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const random = (min, max) => Math.random() * (max - min) + min;
+  
+  useEffect(() => {
+    const handleResize = () => setScreenHeight(window.innerHeight);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // 랜덤 값 생성 (컴포넌트 생성 시 한 번만)
+  const randomValues = useRef({
+    startX: random(0, 100),
+    duration: random(petalConfig.duration.min, petalConfig.duration.max),
+    delay: random(petalConfig.delay.min, petalConfig.delay.max),
+    swayAmount: random(petalConfig.sway.min, petalConfig.sway.max),
+    rotation: random(petalConfig.rotation.min, petalConfig.rotation.max),
+    size: random(petalConfig.size.min, petalConfig.size.max),
+    opacity: random(petalConfig.opacity.min, petalConfig.opacity.max),
+  }).current;
+  
+  const petalImage = petalConfig.petalImages[index % petalConfig.petalImages.length];
+  
+  return (
+    <motion.img
+      src={petalImage}
+      alt=""
+      style={{
+        position: 'fixed',
+        top: '-50px',
+        left: `${randomValues.startX}%`,
+        width: `${randomValues.size}px`,
+        height: 'auto',
+        opacity: randomValues.opacity,
+        pointerEvents: 'none',
+        zIndex: 1,
+      }}
+      initial={{ 
+        y: -50,
+        x: 0,
+        rotate: 0,
+      }}
+      animate={{
+        y: screenHeight + 100,
+        x: [0, randomValues.swayAmount, -randomValues.swayAmount, randomValues.swayAmount, 0],
+        rotate: [0, randomValues.rotation, -randomValues.rotation / 2, randomValues.rotation, 0],
+      }}
+      transition={{
+        y: {
+          duration: randomValues.duration,
+          delay: randomValues.delay,
+          repeat: Infinity,
+          ease: 'linear',
+        },
+        x: {
+          duration: randomValues.duration,
+          delay: randomValues.delay,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        },
+        rotate: {
+          duration: randomValues.duration,
+          delay: randomValues.delay,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        },
+      }}
+    />
+  );
+};
+
+// 벚꽃잎 효과 컴포넌트
+const CherryBlossomEffect = () => {
+  if (!config.cherryBlossom?.enabled) return null;
+  
+  const petalConfig = config.cherryBlossom;
+  const petals = Array.from({ length: petalConfig.count }, (_, i) => i);
+  
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      pointerEvents: 'none',
+      zIndex: 1,
+      overflow: 'hidden',
+    }}>
+      {petals.map((index) => (
+        <CherryBlossomPetal key={index} index={index} config={petalConfig} />
+      ))}
+    </div>
+  );
+};
+
 function App() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [copied, setCopied] = useState({ 
@@ -521,6 +618,9 @@ END:VCALENDAR`;
       backgroundColor: theme.bgColor,
       boxShadow: '0 0 30px rgba(0,0,0,0.1)'
     }}>
+      {/* 벚꽃잎 효과 - 자동 스크롤 완료 후 시작 */}
+      {introComplete && <CherryBlossomEffect />}
+      
       {/* 이미지 확대 모달 */}
       <AnimatePresence>
         {showModal && (
