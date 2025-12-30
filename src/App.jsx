@@ -25,7 +25,7 @@ const SakuraPetal = ({ id, config: petalConfig }) => {
   const random = (min, max) => Math.random() * (max - min) + min;
   
   // 랜덤 값 생성 (컴포넌트 생성 시 한 번만)
-  const randomValues = useRef(() => {
+  const randomValues = useRef((() => {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
     const documentHeight = Math.max(document.documentElement.scrollHeight, screenHeight * 2);
@@ -58,7 +58,7 @@ const SakuraPetal = ({ id, config: petalConfig }) => {
       rotation: random(petalConfig.rotation.min, petalConfig.rotation.max),
       size: random(petalConfig.size.min, petalConfig.size.max),
     };
-  }()).current;
+  })()).current;
   
   const petalImage = petalConfig.petalImages[Math.floor(Math.random() * petalConfig.petalImages.length)];
   

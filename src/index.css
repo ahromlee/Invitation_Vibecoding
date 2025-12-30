@@ -96,12 +96,6 @@
   font-style: normal;
 }
 
-/* 주아 (Jua) - 둥글고 귀여운 Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-
-/* 블랙한산스 - 두껍고 강렬한 */
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-
 /* 여기어때 잘난체 - 두껍고 임팩트 (백업) */
 @font-face {
   font-family: 'yg-jalnan';
