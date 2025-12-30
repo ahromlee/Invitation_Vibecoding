@@ -3,6 +3,11 @@
 // Hero(표지)는 px 단위 (디바이스 폰트 설정 무시)
 // 나머지는 rem 단위 (디바이스 폰트 설정 반영)
 
+// ===== 이미지 폴더 설정 =====
+// '' = 기본 폴더 (public/)
+// 'Cartoon' = 카툰 스타일 (public/Cartoon/)
+export const imageFolder = 'Cartoon';
+
 // ===== 테마 색상 =====
 export const theme = {
   bgColor: '#E5E1D8',
@@ -17,7 +22,7 @@ export const config = {
   // 1. Hero (표지) - ⚠️ 고정 px 단위: 디바이스 폰트 설정 무시
   // ============================================================
   hero: {
-    backgroundImage: '/hero_main.jpg',
+    backgroundImage: imageFolder ? `/${imageFolder}/hero_main.jpg` : '/hero_main.jpg',
     
     // A. 영문 이름 1 (신랑)
     nameEn1: 'Lee Ah-rom',
@@ -25,7 +30,7 @@ export const config = {
     nameEn1Size: '26px',
     
     // B. & 기호
-    ampersand: '&&',
+    ampersand: '&',
     ampersandFont: "'La Paloma', 'Great Vibes', cursive",
     ampersandSize: '18px',
     
@@ -98,8 +103,8 @@ export const config = {
     title: '신 랑  신 부',
     titleFont: "'MapoFlowerIsland', 'Gowun Batang', serif",
     titleSize: '1.5rem',
-    groomImage: '/groom.jpg',
-    brideImage: '/bride.jpg',
+    groomImage: imageFolder ? `/${imageFolder}/groom.jpg` : '/groom.jpg',
+    brideImage: imageFolder ? `/${imageFolder}/bride.jpg` : '/bride.jpg',
   },
   groom: {
     name: '아롬',
@@ -122,16 +127,16 @@ export const config = {
     titleFont: "'MapoFlowerIsland', 'Gowun Batang', serif",
     titleSize: '1.5rem',
     images: [
-      '/gallery_1.jpg',
-      '/gallery_2.jpg',
-      '/gallery_3.jpg',
-      '/gallery_4.jpg',
-      '/gallery_5.jpg',
-      '/gallery_6.jpg',
-      '/gallery_7.jpg',
-      '/gallery_8.jpg',
-      '/gallery_9.jpg',
-      '/gallery_10.jpg',
+      imageFolder ? `/${imageFolder}/gallery_1.jpg` : '/gallery_1.jpg',
+      imageFolder ? `/${imageFolder}/gallery_2.jpg` : '/gallery_2.jpg',
+      imageFolder ? `/${imageFolder}/gallery_3.jpg` : '/gallery_3.jpg',
+      imageFolder ? `/${imageFolder}/gallery_4.jpg` : '/gallery_4.jpg',
+      imageFolder ? `/${imageFolder}/gallery_5.jpg` : '/gallery_5.jpg',
+      imageFolder ? `/${imageFolder}/gallery_6.jpg` : '/gallery_6.jpg',
+      imageFolder ? `/${imageFolder}/gallery_7.jpg` : '/gallery_7.jpg',
+      imageFolder ? `/${imageFolder}/gallery_8.jpg` : '/gallery_8.jpg',
+      imageFolder ? `/${imageFolder}/gallery_9.jpg` : '/gallery_9.jpg',
+      imageFolder ? `/${imageFolder}/gallery_10.jpg` : '/gallery_10.jpg',
     ],
     touchHint: '터치하여 확대',
     
