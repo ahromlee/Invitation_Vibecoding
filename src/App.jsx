@@ -151,7 +151,7 @@ const SakuraPetal = ({ id, config: petalConfig }) => {
 // 벚꽃잎 효과 컴포넌트
 const SakuraPetalEffect = () => {
   useEffect(() => {
-    console.log('SakuraPetalEffect 렌더링:', {
+    console.log('🌸 SakuraPetalEffect 렌더링 시작!', {
       enabled: config.sakuraPetal?.enabled,
       count: config.sakuraPetal?.count,
       images: config.sakuraPetal?.petalImages
@@ -159,7 +159,7 @@ const SakuraPetalEffect = () => {
   }, []);
   
   if (!config.sakuraPetal?.enabled) {
-    console.log('벚꽃잎 효과 비활성화됨');
+    console.warn('⚠️ 벚꽃잎 효과 비활성화됨 (enabled: false)');
     return null;
   }
   
@@ -282,6 +282,7 @@ function App() {
   const [introComplete, setIntroComplete] = useState(false);
   
   useEffect(() => {
+    console.log('🚀 자동 스크롤 시작');
     // 스크롤 금지
     document.body.style.overflow = 'hidden';
     
@@ -304,6 +305,7 @@ function App() {
         // 애니메이션 완료 - 스크롤 허용
         document.body.style.overflow = '';
         setIntroComplete(true);
+        console.log('✅ 자동 스크롤 완료! introComplete = true');
       }
     };
     
@@ -696,8 +698,8 @@ END:VCALENDAR`;
     }}>
       {/* 벚꽃잎 효과 - 자동 스크롤 완료 후 시작 */}
       {(() => {
-        console.log('introComplete 상태:', introComplete);
-        return introComplete && <SakuraPetalEffect />;
+        console.log('🔍 벚꽃잎 렌더링 체크 - introComplete:', introComplete);
+        return introComplete ? <SakuraPetalEffect /> : null;
       })()}
       
       {/* 이미지 확대 모달 */}
