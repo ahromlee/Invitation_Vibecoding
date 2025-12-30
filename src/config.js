@@ -25,7 +25,7 @@ export const config = {
     nameEn1Size: '26px',
     
     // B. & 기호
-    ampersand: '&',
+    ampersand: '&&',
     ampersandFont: "'La Paloma', 'Great Vibes', cursive",
     ampersandSize: '18px',
     
