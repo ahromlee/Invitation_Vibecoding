@@ -1,3 +1,43 @@
+/* ===== @import 문은 반드시 파일 맨 위에 위치해야 합니다 ===== */
+/* Great Vibes - 우아한 웨딩 스크립트 */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Pinyon Script - 클래식 웨딩 스크립트 */
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+/* Dancing Script - 부드러운 스크립트 */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+/* 주아 (Jua) - 둥글고 귀여운 Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* 블랙한산스 - 두껍고 강렬한 */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+/* 나눔명조 - 클래식 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
+/* 고운바탕 - 우아한 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+/* 고운돋움 - 부드러운 본문용 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+/* 프리텐다드 - 깔끔한 UI용 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* Cormorant Garamond - 우아한 영문 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* Italiana - 고급스러운 패션 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+/* Playfair Display - 클래식 영문 세리프 */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* Great Vibes - 우아한 필기체 */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 /* ===== 우아하고 세련된 폰트 ===== */
 
 /* La Paloma - 영문 웨딩 타이틀용 */
@@ -38,15 +78,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-/* Great Vibes - 우아한 웨딩 스크립트 */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-/* Pinyon Script - 클래식 웨딩 스크립트 */
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-
-/* Dancing Script - 부드러운 스크립트 */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 /* 교보손글씨 2021 성지영 - 기본 본문용 손글씨 */
 @font-face {
@@ -151,31 +182,6 @@
   font-style: normal;
 }
 
-/* 나눔명조 - 클래식 세리프 */
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
-
-/* 고운바탕 - 우아한 세리프 */
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
-
-/* 고운돋움 - 부드러운 본문용 */
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-
-/* 프리텐다드 - 깔끔한 UI용 */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
-/* ===== 영문 폰트 ===== */
-
-/* Cormorant Garamond - 우아한 영문 세리프 */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap');
-
-/* Italiana - 고급스러운 패션 세리프 */
-@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
-
-/* Playfair Display - 클래식 영문 세리프 */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
-/* Great Vibes - 우아한 필기체 */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 * {
   margin: 0;
