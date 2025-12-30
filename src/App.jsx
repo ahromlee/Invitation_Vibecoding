@@ -118,44 +118,31 @@ const SakuraPetal = ({ id, config: petalConfig }) => {
   }, [id]);
   
   return (
-    <div
+    <img
       ref={petalRef}
+      src={petalImage}
+      alt=""
+      onError={(e) => {
+        console.error('❌ 벚꽃잎 이미지 로드 실패:', petalImage);
+        // 이미지 로드 실패 시 빨간색 박스로 표시 (디버깅용)
+        e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+        e.target.style.border = '2px solid red';
+      }}
+      onLoad={() => {
+        console.log('✅ 벚꽃잎 이미지 로드 성공:', petalImage, '크기:', randomValues.size);
+      }}
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         width: `${randomValues.size}px`,
-        height: `${randomValues.size}px`,
+        height: 'auto',
         pointerEvents: 'none',
         zIndex: 9999,
         willChange: 'transform',
         visibility: 'visible',
-        backgroundImage: `url(${petalImage})`,
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
       }}
-      onError={() => {
-        console.error('❌ 벚꽃잎 이미지 로드 실패:', petalImage);
-      }}
-    >
-      <img
-        src={petalImage}
-        alt=""
-        style={{ display: 'none' }}
-        onError={(e) => {
-          console.error('❌ 벚꽃잎 이미지 로드 실패:', petalImage);
-          // 이미지 로드 실패 시 빨간색 박스로 표시 (디버깅용)
-          if (petalRef.current) {
-            petalRef.current.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
-            petalRef.current.style.border = '2px solid red';
-          }
-        }}
-        onLoad={() => {
-          console.log('✅ 벚꽃잎 이미지 로드 성공:', petalImage, '크기:', randomValues.size);
-        }}
-      />
-    </div>
+    />
   );
 };
 
