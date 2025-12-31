@@ -12,23 +12,35 @@
 
 ## ✨ 주요 기능
 
-### 🎨 디자인
+### 🎨 디자인 & UI
 - **글래스모피즘 UI** - 모던하고 세련된 반투명 카드 디자인
 - **부드러운 애니메이션** - Framer Motion 기반 스크롤/인터랙션 애니메이션
-- **컬러 테마 시스템** - 핑크/그린 테마 선택 가능
+- **커스텀 컬러 테마** - `config.js`에서 테마 색상 자유롭게 변경
 - **모바일 퍼스트** - 모바일 최적화, PC에서도 깔끔하게 표시
 
-### 📱 기능
+### 📱 핵심 기능
 - **플로팅 목차** - 원터치로 원하는 섹션으로 이동
-- **갤러리** - 스와이프로 사진 넘기기, 탭하면 확대
+- **갤러리** - 스와이프로 사진 넘기기, 핀치 투 줌 확대
 - **지도 연동** - 네이버/카카오/T맵 바로가기
 - **계좌번호 복사** - 원클릭 계좌번호 복사
+- **D-Day 카운트다운** - 결혼식까지 남은 날짜 표시
+- **이미지 보호** - 우클릭/드래그/길게 누르기 저장 방지
 
-### 🔤 폰트
-- **나눔명조** - 클래식한 제목용 세리프
-- **프리텐다드** - 가독성 좋은 본문용 고딕
-- **마루부리** - 모던 세리프 (예비용)
-- **Cormorant Garamond** - 영문 타이틀
+### 🔧 설정 가능 항목
+- **이미지 폴더 선택** - 기본/Cartoon 등 이미지 세트 전환
+- **벚꽃잎 효과** - 화면에 떨어지는 벚꽃잎 애니메이션
+- **모든 텍스트/폰트** - `config.js`에서 완전 커스터마이징
+
+---
+
+## 🛠️ 기술 스택
+
+| 분류 | 기술 |
+|------|------|
+| Frontend | React 18, Vite 5 |
+| Animation | Framer Motion 11 |
+| Styling | Tailwind CSS |
+| Deployment | Vercel |
 
 ---
 
@@ -55,33 +67,43 @@ npm run build
 
 모든 텍스트와 설정은 `src/config.js`에서 관리됩니다.
 
+### 이미지 폴더 설정
+```javascript
+// '' = 기본 폴더 (public/)
+// 'Cartoon' = 카툰 스타일 (public/Cartoon/)
+export const imageFolder = 'Cartoon';
+```
+
+### 주요 설정 항목
 ```javascript
 export const config = {
-  // 테마: ColorTheme.PINK (1) 또는 ColorTheme.GREEN (2)
-  colorTheme: ColorTheme.GREEN,
-  
-  // 히어로 배경 이미지
+  // 히어로 섹션
   hero: {
-    backgroundImage: '/bg.jpg',
-    backgroundOpacity: 0.5,
-    useBackgroundImage: true,
+    backgroundImage: '/hero_main.jpg',
+    nameEn1: 'Lee Ah-rom',
+    nameEn2: 'Shin Gyeong-ryun',
+    // ...
   },
   
   // 신랑/신부 정보
-  groom: { name: '아롬', fullname: '이아롬', ... },
-  bride: { name: '경륜', fullname: '신경륜', ... },
+  groom: { name: '아롬', fatherName: '이원조', ... },
+  bride: { name: '경륜', fatherName: '신락현', ... },
   
   // 결혼식 정보
   wedding: { date: '2026-04-18', time: '13:00', ... },
   
-  // 예식장 정보
-  venue: { name: '에스가든웨딩홀 청주점', ... },
+  // 갤러리 설정
+  gallery: {
+    images: [...],
+    protectImages: true,  // 이미지 보호 기능
+  },
   
-  // 갤러리 이미지
-  gallery: ['/gallery_1.jpg', '/gallery_2.jpg', ...],
-  
-  // 계좌 정보
-  accounts: { groom: {...}, bride: {...} },
+  // 벚꽃잎 효과
+  sakuraPetal: {
+    enabled: true,
+    count: 3,
+    // ...
+  },
 };
 ```
 
@@ -93,9 +115,13 @@ export const config = {
 
 | 파일명 | 용도 | 권장 사이즈 |
 |--------|------|-------------|
-| `bg.jpg` | 히어로 배경 | 1080×1440 (3:4) |
-| `gallery_1.jpg` ~ `gallery_4.jpg` | 갤러리 | 1080×1350 (4:5) |
-| `pixel_art.gif` | 픽셀아트 | 자유 |
+| `hero_main.jpg` | 히어로 배경 | 1080×1440 (3:4) |
+| `groom.jpg` / `bride.jpg` | 신랑/신부 사진 | 400×400 (1:1) |
+| `gallery_1.jpg` ~ `gallery_10.jpg` | 갤러리 | 1080×1350 (4:5) |
+| `SakuraPetals01~03.png` | 벚꽃잎 이미지 | 투명 PNG |
+
+### Cartoon 폴더
+`public/Cartoon/` 폴더에 동일한 파일명으로 이미지를 넣으면 `imageFolder` 설정으로 전환 가능합니다.
 
 ---
 
@@ -109,6 +135,29 @@ npx vercel --prod
 ```
 
 또는 GitHub 연동 후 자동 배포 설정
+
+---
+
+## 🤝 개발 크레딧
+
+### 직접 개발
+- 전체 UI/UX 설계 및 구현
+- React 컴포넌트 구조 설계
+- Framer Motion 애니메이션 시스템
+- 반응형 레이아웃 구현
+- 계좌번호 복사 기능
+- 지도 연동 (네이버/카카오/T맵)
+- D-Day 카운트다운
+- 플로팅 네비게이션
+- config.js 기반 설정 시스템
+
+### Cursor AI 도움
+다음 기능들은 [Cursor](https://cursor.sh/) AI의 도움을 받아 구현했습니다:
+- 🌸 벚꽃잎 떨어지는 애니메이션 효과
+- 🔒 초기 화면 스크롤 잠금 기능
+- 🎭 마스킹을 통한 메인 페이지 로딩 연출 (딜레이 처리)
+- 🔍 갤러리 이미지 확대 팝업 (핀치 투 줌)
+- 🔤 폰트 리사이징 시스템
 
 ---
 
