@@ -1425,10 +1425,10 @@ END:VCALENDAR`;
                     width: '100%',
                     height: '160%',
                     objectFit: 'cover',
-                    objectPosition: 'center 25%',
+                    objectPosition: '40% 25%',
                     position: 'absolute',
                     top: '-30%',
-                    transform: 'scale(1.3)',
+                    transform: 'scale(1.5)',
                     ...getImageProtectionStyle()
                   }}
                   onError={(e) => {
