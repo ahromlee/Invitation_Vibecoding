@@ -291,7 +291,7 @@ export const config = {
     // 기본 공유 설정 (템플릿 미사용 시)
     title: '아롬 💍 경륜, 결혼합니다',
     description: '2026년 4월 18일 (토) 오후 1시\n청주 에스가든 웨딩 컨벤션',
-    imageUrl: 'https://invitation-inky-pi.vercel.app/preview.jpg', // ⚠️ 반드시 https 공개 URL
+    imageUrl: 'https://invitation-inky-pi.vercel.app/hero_main.jpg', // ⚠️ 반드시 https 공개 URL
     webUrl: 'https://invitation-inky-pi.vercel.app/',              // ⚠️ 배포된 청첩장 URL
     
     // 버튼 텍스트
