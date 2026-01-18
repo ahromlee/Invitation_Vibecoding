@@ -1408,7 +1408,7 @@ END:VCALENDAR`;
               transition={{ duration: 0.5, delay: 0.3 }}
               style={{ marginBottom: '2rem' }}
             >
-              {/* 신부 사진 - 상하 10% 프레임, 위로 올림 */}
+              {/* 신부 사진 - 신랑과 비슷한 비중으로 */}
               <div style={{
                 overflow: 'hidden',
                 marginBottom: '1rem',
@@ -1423,12 +1423,12 @@ END:VCALENDAR`;
                   onDragStart={preventImageActions}
                   style={{
                     width: '100%',
-                    height: '125%',
+                    height: '160%',
                     objectFit: 'cover',
-                    objectPosition: 'center 15%',
+                    objectPosition: 'center 25%',
                     position: 'absolute',
-                    top: '-12.5%',
-                    transform: 'scale(1.1)',
+                    top: '-30%',
+                    transform: 'scale(1.3)',
                     ...getImageProtectionStyle()
                   }}
                   onError={(e) => {
