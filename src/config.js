@@ -286,7 +286,7 @@ export const config = {
     
     // 메시지 템플릿 ID (선택사항 - 커스텀 템플릿 사용 시)
     // https://developers.kakao.com > 도구 > 메시지 템플릿
-    templateId: null, // 예: 123456
+    templateId: 128071, // 커스텀 템플릿 사용
     
     // 기본 공유 설정 (템플릿 미사용 시)
     title: '아롬 💍 경륜, 결혼합니다',
