@@ -1422,7 +1422,7 @@ END:VCALENDAR`;
                   onContextMenu={preventImageActions}
                   onDragStart={preventImageActions}
                   style={{
-                    width: '100%',
+                    width: '130%',
                     height: '160%',
                     objectFit: 'cover',
                     objectPosition: 'center 25%',
