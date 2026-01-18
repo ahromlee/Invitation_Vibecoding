@@ -6,7 +6,7 @@
 // ===== 이미지 폴더 설정 =====
 // '' = 기본 폴더 (public/)
 // 'cartoon' = 카툰 스타일 (public/cartoon/)
-export const imageFolder = 'public';
+export const imageFolder = 'cartoon';
 
 // ===== 테마 색상 =====
 export const theme = {
