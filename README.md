@@ -81,17 +81,33 @@ export const config = {
   // 히어로 섹션
   hero: {
     backgroundImage: '/hero_main.jpg',
-    nameEn1: 'Lee Ah-rom',
-    nameEn2: 'Shin Gyeong-ryun',
+    nameEn1: 'Eraenim',  // 신랑 영문 이름
+    nameEn2: 'Monnim',   // 신부 영문 이름
     // ...
   },
   
   // 신랑/신부 정보
-  groom: { name: '아롬', fatherName: '이원조', ... },
-  bride: { name: '경륜', fatherName: '신락현', ... },
+  groom: { 
+    name: '신랑이름',           // 신랑 이름
+    fatherName: '신랑 아버지 이름',  // 신랑 아버지 이름
+    motherName: '신랑 어머니 이름',  // 신랑 어머니 이름
+    relation: '장남',           // 관계 (장남, 차남 등)
+    ... 
+  },
+  bride: { 
+    name: '신부이름',           // 신부 이름
+    fatherName: '신부 아버지 이름',  // 신부 아버지 이름
+    motherName: '신부 어머니 이름',  // 신부 어머니 이름
+    relation: '장녀',           // 관계 (장녀, 차녀 등)
+    ... 
+  },
   
   // 결혼식 정보
-  wedding: { date: '2026-04-18', time: '13:00', ... },
+  wedding: { 
+    date: 'YYYY-MM-DD',  // 결혼식 날짜 (ISO 형식)
+    time: 'HH:MM',       // 결혼식 시간 (24시간 형식)
+    ... 
+  },
   
   // 갤러리 설정
   gallery: {
@@ -114,7 +130,7 @@ export const config = {
 
 | 파일명 | 용도 | 권장 사이즈 |
 |--------|------|-------------|
-| `hero_main.jpg` | 히어로 배경 | 1080×1440 (3:4) |
+| `hero_main.jpg` | 메인 이미지 | 1080×1440 (3:4) |
 | `groom.jpg` / `bride.jpg` | 신랑/신부 사진 | 400×400 (1:1) |
 | `gallery_1.jpg` ~ `gallery_10.jpg` | 갤러리 | 1080×1350 (4:5) |
 | `SakuraPetals01~03.png` | 벚꽃잎 이미지 | 투명 PNG |

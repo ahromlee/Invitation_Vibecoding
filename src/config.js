@@ -26,7 +26,7 @@ export const config = {
     
     // A. 영문 이름 1 (신랑)
     // ⚠️ 실제 사용 시 전체 이름을 입력하세요 (예: 'Lee Ah-rom', 'Kim Min-su')
-    nameEn1: 'Erae',
+    nameEn1: 'Eraenim',
     // ⚠️ 폰트 주의사항: La Paloma 폰트는 일부 문자만 포함된 subset 폰트입니다.
     // 실제 사용 시 필요한 모든 문자(A-Z, a-z, 특수문자 등)가 포함된 폰트 파일을 사용하거나,
     // 폰트 서브셋팅 도구로 필요한 문자만 추출하여 사용하세요.
@@ -41,7 +41,7 @@ export const config = {
     
     // C. 영문 이름 2 (신부)
     // ⚠️ 실제 사용 시 전체 이름을 입력하세요 (예: 'Shin Gyeong-ryun', 'Park So-young')
-    nameEn2: 'Mon',
+    nameEn2: 'Monnim',
     // ⚠️ 폰트 주의사항: La Paloma 폰트는 일부 문자만 포함된 subset 폰트입니다.
     // 실제 사용 시 필요한 모든 문자(A-Z, a-z, 특수문자 등)가 포함된 폰트 파일을 사용하거나,
     // 폰트 서브셋팅 도구로 필요한 문자만 추출하여 사용하세요.
