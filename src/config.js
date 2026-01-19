@@ -93,18 +93,6 @@ export const config = {
     messageFont: "'KoPubWorldDotum', sans-serif",
     messageSize: '1rem',
     messageColor: '#8B6D4C',
-    
-    // ★ 육행시 (주석처리)
-    // poem: [
-    //   { first: '이', rest: '렇게 우리 두 사람이' },
-    //   { first: '아', rest: '름다운 만남을 시작했습니다' },
-    //   { first: '롬', rest: '륜 커플이' },
-    //   { first: '신', rest: '혼을 시작하려고 합니다' },
-    //   { first: '경', rest: '사로운 날을 축하해주시고' },
-    //   { first: '륜', rest: '택한 삶을 만들어가겠습니다' },
-    // ],
-    // poemFont: "'NanumYeDang', sans-serif",
-    // poemSize: '1.05rem',
   },
 
   // ============================================================

@@ -205,7 +205,6 @@ const SakuraPetalEffect = () => {
 };
 
 function App() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [copied, setCopied] = useState({ 
     groom: false, bride: false, 
     groomFather: false, groomMother: false,
@@ -340,32 +339,6 @@ function App() {
       setIsMenuOpen(false);
     }
   };
-
-  // D-Day 카운터
-  useEffect(() => {
-    const targetDate = new Date(`${config.wedding.date}T${config.wedding.time}:00`).getTime();
-    
-    const updateTimer = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
-
-    updateTimer();
-    const interval = setInterval(updateTimer, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   // Hero 자동 스크롤 (페이지 로드 시 2.5초에 걸쳐 자동 스크롤)
   const [introComplete, setIntroComplete] = useState(false);
