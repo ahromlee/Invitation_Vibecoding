@@ -25,7 +25,9 @@ export const config = {
     backgroundImage: imageFolder ? `/${imageFolder}/hero_main.jpg` : '/hero_main.jpg',
     
     // A. 영문 이름 1 (신랑)
-    nameEn1: 'Lee Re',
+    // ⚠️ 실제 사용 시 전체 이름을 입력하세요 (예: 'Lee Ah-rom', 'Kim Min-su')
+    // 현재는 예시로 일부만 표시되어 있습니다
+    nameEn1: 'Lee R...',
     nameEn1Font: "'La Paloma', 'Great Vibes', cursive",
     nameEn1Size: '26px',
     
@@ -35,7 +37,9 @@ export const config = {
     ampersandSize: '18px',
     
     // C. 영문 이름 2 (신부)
-    nameEn2: 'Mon',
+    // ⚠️ 실제 사용 시 전체 이름을 입력하세요 (예: 'Shin Gyeong-ryun', 'Park So-young')
+    // 현재는 예시로 일부만 표시되어 있습니다
+    nameEn2: 'Mon...',
     nameEn2Font: "'La Paloma', 'Great Vibes', cursive",
     nameEn2Size: '26px',
     
@@ -46,13 +50,15 @@ export const config = {
     inviteTextWeight: 300,
     
     // E. 날짜
-    dateDisplay: '2026. 4. 18 (토) 오후 1시',
+    // ⚠️ 실제 결혼식 날짜로 변경하세요 (예: '2026. 4. 18 (토) 오후 1시')
+    dateDisplay: 'YYYY. M. D (요일) 오후 N시',
     dateDisplayFont: "'KoPubWorldDotum', sans-serif",
     dateDisplaySize: '22px',
     dateDisplayWeight: 300,
     
     // F. 장소
-    venueShort: '청주 에스가든 웨딩 컨벤션',
+    // ⚠️ 실제 결혼식 장소로 변경하세요 (예: '서울 그랜드힐컨벤션웨딩', '부산 웨딩홀')
+    venueShort: '지역명 웨딩홀 이름',
     venueShortFont: "'KoPubWorldDotum', sans-serif",
     venueShortSize: '20px',
     venueShortWeight: 300,
@@ -153,11 +159,12 @@ export const config = {
     titleSize: '1.5rem',
     
     venue: {
-      name: '에스가든웨딩홀',
-      branch: '청주점',
-      hall: '',
-      address: '충청북도 청주시 서원구 1순환로 854',
-      addressDetail: '(산남동 320번지, CJB미디어센터)',
+      // ⚠️ 실제 웨딩홀 정보로 변경하세요
+      name: '웨딩홀 이름',
+      branch: '지점명',  // 지점이 없으면 빈 문자열 ''
+      hall: '',  // 홀 이름 (예: '그랜드홀', '로즈홀')
+      address: '주소를 입력하세요',  // 예: '서울특별시 강남구 테헤란로 123'
+      addressDetail: '(상세 주소 정보)',  // 예: '(역삼동 456번지, 빌딩명)'
     },
     
     maps: {
@@ -191,24 +198,27 @@ export const config = {
     
     addressLabel: '주소',
     transportLabel: '교통편',
+    // ⚠️ 실제 교통편 정보로 변경하세요
     transportation: [
-      '남부터미널 | 자차 5분 · 대중교통 20분',
-      '가경시외버스터미널 | 자차 10분 · 대중교통 30분',
-      '서청주IC | 자차 15분',
+      '터미널명 | 자차 N분 · 대중교통 N분',
+      '지하철역명 | 자차 N분 · 대중교통 N분',
+      '고속도로IC명 | 자차 N분',
     ],
-    busInfo: '버스 | 30-1, 30-2, 710, 843, 851',
+    // ⚠️ 실제 버스 노선 정보로 변경하세요 (버스 정보가 없으면 빈 문자열 '' 또는 주석 처리)
+    busInfo: '버스 | 노선번호1, 노선번호2, 노선번호3',
   },
 
   // ============================================================
   // 6. 결혼식 날짜/시간
   // ============================================================
   wedding: {
-    date: '2026-04-18',
-    time: '13:00',
-    year: '2026년',
-    monthDay: '4월 18일',
-    dayOfWeek: '토요일',
-    timeText: '오후 1시',
+    // ⚠️ 실제 결혼식 날짜와 시간으로 변경하세요
+    date: 'YYYY-MM-DD',  // ISO 형식 (예: '2026-04-18')
+    time: 'HH:MM',  // 24시간 형식 (예: '13:00', '14:30')
+    year: 'YYYY년',  // 예: '2026년'
+    monthDay: 'M월 D일',  // 예: '4월 18일'
+    dayOfWeek: '요일',  // 예: '토요일', '일요일'
+    timeText: '오후 N시',  // 예: '오후 1시', '오후 2시 30분'
   },
 
   // ============================================================
