@@ -1,80 +1,69 @@
-# 💒 모바일 청첩장
+# 모바일 청첩장
 
-> 아롬 ♥ 경륜의 결혼을 알리는 모바일 청첩장입니다.
+모바일 최적화된 결혼식 초대장 웹 애플리케이션입니다.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18.x-61DAFB?style=flat-square&logo=react" />
-  <img src="https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite" />
-  <img src="https://img.shields.io/badge/Framer_Motion-11.x-FF0055?style=flat-square&logo=framer" />
-</p>
+## 기술 스택
 
----
+- **Frontend**: React 18, Vite 5
+- **Animation**: Framer Motion 11
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel
 
-## ✨ 주요 기능
+## 주요 기능
 
-### 🎨 디자인 & UI
-- **글래스모피즘 UI** - 모던하고 세련된 반투명 카드 디자인
-- **부드러운 애니메이션** - Framer Motion 기반 스크롤/인터랙션 애니메이션
-- **커스텀 컬러 테마** - `config.js`에서 테마 색상 자유롭게 변경
-- **모바일 퍼스트** - 모바일 최적화, PC에서도 깔끔하게 표시
+### 디자인 & UI
+- 글래스모피즘 UI - 모던하고 세련된 반투명 카드 디자인
+- 부드러운 애니메이션 - Framer Motion 기반 스크롤/인터랙션 애니메이션
+- 커스텀 컬러 테마 - `config.js`에서 테마 색상 자유롭게 변경
+- 모바일 퍼스트 - 모바일 최적화, PC에서도 깔끔하게 표시
 
-### 📱 핵심 기능
-- **플로팅 목차** - 원터치로 원하는 섹션으로 이동
-- **갤러리** - 스와이프로 사진 넘기기, 핀치 투 줌 확대
-- **지도 연동** - 네이버/카카오/T맵 바로가기
-- **계좌번호 복사** - 원클릭 계좌번호 복사
-- **D-Day 카운트다운** - 결혼식까지 남은 날짜 표시
-- **이미지 보호** - 우클릭/드래그/길게 누르기 저장 방지
+### 핵심 기능
+- 플로팅 목차 - 원터치로 원하는 섹션으로 이동
+- 갤러리 - 스와이프로 사진 넘기기, 핀치 투 줌 확대
+- 지도 연동 - 네이버/카카오/T맵 바로가기
+- 계좌번호 복사 - 원클릭 계좌번호 복사
+- D-Day 카운트다운 - 결혼식까지 남은 날짜 표시
+- 이미지 보호 - 우클릭/드래그/길게 누르기 저장 방지
 
-### 🔧 설정 가능 항목
-- **이미지 폴더 선택** - 기본/Cartoon 등 이미지 세트 전환
-- **벚꽃잎 효과** - 화면에 떨어지는 벚꽃잎 애니메이션
-- **모든 텍스트/폰트** - `config.js`에서 완전 커스터마이징
+### 설정 가능 항목
+- 이미지 폴더 선택 - 기본/Cartoon 등 이미지 세트 전환
+- 벚꽃잎 효과 - 화면에 떨어지는 벚꽃잎 애니메이션
+- 모든 텍스트/폰트 - `config.js`에서 완전 커스터마이징
 
----
-
-## 🛠️ 기술 스택
-
-| 분류 | 기술 |
-|------|------|
-| Frontend | React 18, Vite 5 |
-| Animation | Framer Motion 11 |
-| Styling | Tailwind CSS |
-| Deployment | Vercel |
-
----
-
-## 🚀 시작하기
+## 시작하기
 
 ### 설치
+
 ```bash
 npm install
 ```
 
-### 개발 서버
+### 개발 서버 실행
+
 ```bash
 npm run dev
 ```
 
-### 빌드
+### 프로덕션 빌드
+
 ```bash
 npm run build
 ```
 
----
-
-## ⚙️ 설정
+## 설정
 
 모든 텍스트와 설정은 `src/config.js`에서 관리됩니다.
 
 ### 이미지 폴더 설정
+
 ```javascript
 // '' = 기본 폴더 (public/)
-// 'Cartoon' = 카툰 스타일 (public/Cartoon/)
-export const imageFolder = 'Cartoon';
+// 'cartoon' = 카툰 스타일 (public/cartoon/)
+export const imageFolder = 'cartoon';
 ```
 
 ### 주요 설정 항목
+
 ```javascript
 export const config = {
   // 히어로 섹션
@@ -107,9 +96,7 @@ export const config = {
 };
 ```
 
----
-
-## 📁 이미지 가이드
+## 이미지 가이드
 
 `public/` 폴더에 이미지를 넣어주세요:
 
@@ -121,11 +108,10 @@ export const config = {
 | `SakuraPetals01~03.png` | 벚꽃잎 이미지 | 투명 PNG |
 
 ### Cartoon 폴더
-`public/Cartoon/` 폴더에 동일한 파일명으로 이미지를 넣으면 `imageFolder` 설정으로 전환 가능합니다.
 
----
+`public/cartoon/` 폴더에 동일한 파일명으로 이미지를 넣으면 `imageFolder` 설정으로 전환 가능합니다.
 
-## 🌐 배포
+## 배포
 
 [Vercel](https://vercel.com)에 배포하면 자동으로 HTTPS가 적용됩니다.
 
@@ -136,9 +122,7 @@ npx vercel --prod
 
 또는 GitHub 연동 후 자동 배포 설정
 
----
-
-## 🤝 개발 내역
+## 개발 내역
 
 ### UI/UX
 - 전체 UI/UX 설계 및 구현
@@ -173,14 +157,10 @@ npx vercel --prod
 - ICS 파일 다운로드 (캘린더 추가)
 - 이미지 폴더 선택 시스템 (기본/Cartoon 전환)
 
----
-
-## 📝 라이선스
+## 라이선스
 
 MIT License
 
 ---
 
-<p align="center">
-  Made with ♥ by RomRyun
-</p>
+Made with love by RomRyun
