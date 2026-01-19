@@ -26,20 +26,25 @@ export const config = {
     
     // A. 영문 이름 1 (신랑)
     // ⚠️ 실제 사용 시 전체 이름을 입력하세요 (예: 'Lee Ah-rom', 'Kim Min-su')
-    // 현재는 예시로 일부만 표시되어 있습니다
-    nameEn1: 'Lee R...',
+    nameEn1: 'Erae',
+    // ⚠️ 폰트 주의사항: La Paloma 폰트는 일부 문자만 포함된 subset 폰트입니다.
+    // 실제 사용 시 필요한 모든 문자(A-Z, a-z, 특수문자 등)가 포함된 폰트 파일을 사용하거나,
+    // 폰트 서브셋팅 도구로 필요한 문자만 추출하여 사용하세요.
     nameEn1Font: "'La Paloma', 'Great Vibes', cursive",
     nameEn1Size: '26px',
     
     // B. & 기호
     ampersand: '&',
+    // ⚠️ 폰트 주의사항: La Paloma 폰트는 일부 문자만 포함된 subset 폰트입니다.
     ampersandFont: "'La Paloma', 'Great Vibes', cursive",
     ampersandSize: '18px',
     
     // C. 영문 이름 2 (신부)
     // ⚠️ 실제 사용 시 전체 이름을 입력하세요 (예: 'Shin Gyeong-ryun', 'Park So-young')
-    // 현재는 예시로 일부만 표시되어 있습니다
-    nameEn2: 'Mon...',
+    nameEn2: 'Mon',
+    // ⚠️ 폰트 주의사항: La Paloma 폰트는 일부 문자만 포함된 subset 폰트입니다.
+    // 실제 사용 시 필요한 모든 문자(A-Z, a-z, 특수문자 등)가 포함된 폰트 파일을 사용하거나,
+    // 폰트 서브셋팅 도구로 필요한 문자만 추출하여 사용하세요.
     nameEn2Font: "'La Paloma', 'Great Vibes', cursive",
     nameEn2Size: '26px',
     
