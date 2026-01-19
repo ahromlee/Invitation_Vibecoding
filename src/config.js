@@ -161,9 +161,25 @@ export const config = {
     },
     
     maps: {
-      naver: 'https://naver.me/G02HkD4H',
-      kakao: 'https://kko.kakao.com/m7wFN3SI-8',
-      tmap: 'https://tmap.life/ea42d1f6',
+      // ⚠️ 네이버 지도 링크 설정 방법:
+      // 1. 네이버 지도(https://map.naver.com)에서 장소 검색
+      // 2. 공유하기 버튼 클릭 > 링크 복사
+      // 3. 복사한 링크를 여기에 붙여넣기 (예: https://naver.me/XXXXXXXXXX)
+      naver: 'https://naver.me/XXXXXXXXXX',
+      
+      // ⚠️ 카카오맵 링크 설정 방법:
+      // 1. 카카오맵(https://map.kakao.com)에서 장소 검색
+      // 2. 공유하기 버튼 클릭 > 링크 복사
+      // 3. 복사한 링크를 여기에 붙여넣기 (예: https://kko.kakao.com/XXXXXXXXXX)
+      kakao: 'https://kko.kakao.com/XXXXXXXXXX',
+      
+      // ⚠️ T맵 링크 설정 방법:
+      // 1. T맵(https://tmap.life)에서 장소 검색
+      // 2. 공유하기 버튼 클릭 > 링크 복사
+      // 3. 복사한 링크를 여기에 붙여넣기 (예: https://tmap.life/XXXXXXXXXX)
+      tmap: 'https://tmap.life/XXXXXXXXXX',
+      
+      // 지도 이미지 파일 경로 (public/ 폴더 기준)
       image: '/map_image.png',
     },
     
@@ -280,19 +296,38 @@ export const config = {
   // ============================================================
   kakaoShare: {
     enabled: true,
-    // 카카오 개발자 콘솔에서 발급받은 JavaScript 키
-    // https://developers.kakao.com > 내 애플리케이션 > 앱 키
-    javascriptKey: 'e6b41be93b74a0056cf833ab11cc7e6a',
     
-    // 메시지 템플릿 ID (선택사항 - 커스텀 템플릿 사용 시)
-    // https://developers.kakao.com > 도구 > 메시지 템플릿
-    templateId: 128071, // 커스텀 템플릿 사용
+    // ⚠️ 카카오 JavaScript 키 설정 방법:
+    // 1. 카카오 개발자 콘솔 접속: https://developers.kakao.com
+    // 2. 내 애플리케이션 > 앱 선택 > 앱 키
+    // 3. JavaScript 키를 복사하여 아래에 붙여넣기
+    //    (예: 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6')
+    javascriptKey: 'YOUR_KAKAO_JAVASCRIPT_KEY',
     
-    // 기본 공유 설정 (템플릿 미사용 시)
+    // ⚠️ 카카오 메시지 템플릿 ID (선택사항):
+    // 커스텀 템플릿을 사용하려면:
+    // 1. 카카오 개발자 콘솔 > 도구 > 메시지 템플릿
+    // 2. 템플릿 만들기 또는 기존 템플릿 ID 확인
+    // 3. 템플릿 ID를 아래에 입력 (예: 123456)
+    // 템플릿을 사용하지 않으면 null 또는 주석 처리
+    templateId: null, // 또는 숫자로 템플릿 ID 입력 (예: 123456)
+    
+    // ⚠️ 기본 공유 설정 (템플릿 미사용 시 사용됨):
     title: '이레님 💍 몬님, 결혼합니다',
     description: '2026년 4월 18일 (토) 오후 1시\n청주 에스가든 웨딩 컨벤션',
-    imageUrl: 'https://invitation-inky-pi.vercel.app/preview.jpg', // ⚠️ 반드시 https 공개 URL
-    webUrl: 'https://invitation-inky-pi.vercel.app/',              // ⚠️ 배포된 청첩장 URL
+    
+    // ⚠️ 공유 이미지 URL 설정 방법:
+    // 1. 청첩장을 배포한 후 (Vercel, Netlify 등)
+    // 2. /public/preview.jpg 또는 /public/kakao_preview.jpg 파일이 배포된 URL
+    // 3. 반드시 https://로 시작하는 공개 URL이어야 함
+    // 4. 예: 'https://your-wedding-invitation.vercel.app/preview.jpg'
+    imageUrl: 'https://your-wedding-invitation.vercel.app/preview.jpg',
+    
+    // ⚠️ 청첩장 배포 URL 설정 방법:
+    // 1. Vercel, Netlify 등에 배포한 후
+    // 2. 배포된 실제 URL을 아래에 입력
+    // 3. 예: 'https://your-wedding-invitation.vercel.app/'
+    webUrl: 'https://your-wedding-invitation.vercel.app/',
     
     // 버튼 텍스트
     buttonTitle: '청첩장 보기',
