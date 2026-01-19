@@ -14,7 +14,6 @@
 ### 디자인 & UI
 - 글래스모피즘 UI - 모던하고 세련된 반투명 카드 디자인
 - 부드러운 애니메이션 - Framer Motion 기반 스크롤/인터랙션 애니메이션
-- 커스텀 컬러 테마 - `config.js`에서 테마 색상 자유롭게 변경
 - 모바일 퍼스트 - 모바일 최적화, PC에서도 깔끔하게 표시
 
 ### 핵심 기능
@@ -60,6 +59,19 @@ npm run build
 // '' = 기본 폴더 (public/)
 // 'cartoon' = 카툰 스타일 (public/cartoon/)
 export const imageFolder = 'cartoon';
+```
+
+### 테마 색상 설정
+
+```javascript
+// config.js 상단에 정의된 theme 객체를 수정하여 색상 변경
+export const theme = {
+  bgColor: '#E5E1D8',           // 배경색
+  accentSolid: '#8B6D4C',       // 강조색 (버튼, 인디케이터 등)
+  indicatorActive: '#8B6D4C',   // 활성 인디케이터 색상
+  indicatorInactive: '#d1d5db', // 비활성 인디케이터 색상
+  galleryErrorBg: 'linear-gradient(...)', // 갤러리 에러 배경
+};
 ```
 
 ### 주요 설정 항목
@@ -128,7 +140,7 @@ npx vercel --prod
 - 전체 UI/UX 설계 및 구현
 - 글래스모피즘 디자인 시스템
 - 반응형 레이아웃 (모바일 퍼스트)
-- 커스텀 컬러 테마 시스템
+- config.js 기반 테마 색상 설정
 
 ### 컴포넌트 & 구조
 - React 컴포넌트 구조 설계
