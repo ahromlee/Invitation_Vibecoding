@@ -2,6 +2,8 @@
 
 모바일 최적화된 결혼식 초대장 웹 애플리케이션입니다.
 
+**라이브 데모**: [https://invitationvibecoding.vercel.app/](https://invitationvibecoding.vercel.app/)
+
 ## 개발
 
 게임 업계 근무하면서 그래도 모바일 청첩장은 내가 만들어야지 하는 생각으로 제작해보았습니다.
@@ -75,6 +77,8 @@ npm run build
 export const imageFolder = 'cartoon';
 ```
 
+**참고**: 이 저장소는 공개를 위해 모든 이미지를 카툰풍으로 전환하여 설정되어 있습니다. 실제 사용 시에는 `imageFolder` 설정을 변경하여 원하는 이미지 세트를 사용할 수 있습니다.
+
 ### 테마 색상 설정
 
 ```javascript
@@ -139,6 +143,8 @@ export const config = {
 ```
 
 ## 이미지 가이드
+
+**참고**: 이 저장소는 공개를 위해 모든 이미지를 카툰풍으로 전환하여 제공하고 있습니다. 실제 사용 시에는 원하는 이미지로 교체하여 사용하시면 됩니다.
 
 `public/` 폴더에 이미지를 넣어주세요:
 
