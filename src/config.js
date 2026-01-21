@@ -290,7 +290,7 @@ export const config = {
   // ============================================================
   footer: {
     message: 'Made by 이레님',
-    repository: 'https://github.com/RomRyun/Invitation_Public',
+    repository: 'https://github.com/ahromlee/Invitation_Vibecoding',
     showRepository: true,
   },
 
