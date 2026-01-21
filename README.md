@@ -170,6 +170,97 @@ npx vercel --prod
 
 또는 GitHub 연동 후 자동 배포 설정
 
+## 카카오톡 공유 연동 가이드
+
+카카오톡 공유 기능을 사용하려면 카카오 개발자 콘솔에서 앱을 등록하고 설정해야 합니다.
+
+### 1. 카카오 개발자 콘솔 설정
+
+1. [카카오 개발자 콘솔](https://developers.kakao.com)에 접속
+2. 내 애플리케이션 > 애플리케이션 추가하기
+3. 앱 이름, 사업자명 입력 후 저장
+
+### 2. 플랫폼 설정
+
+1. 내 애플리케이션 > 앱 선택 > 플랫폼
+2. Web 플랫폼 등록
+   - 사이트 도메인: 배포된 도메인 입력 (예: `invitationvibecoding.vercel.app`)
+   - 사이트 도메인 등록 후 저장
+
+### 3. JavaScript 키 발급
+
+1. 내 애플리케이션 > 앱 선택 > 앱 키
+2. JavaScript 키 복사
+3. `src/config.js`의 `kakaoShare.javascriptKey`에 붙여넣기
+
+```javascript
+kakaoShare: {
+  enabled: true,
+  javascriptKey: '발급받은_JavaScript_키를_여기에_입력',
+  // ...
+}
+```
+
+### 4. 공유 이미지 준비
+
+1. `public/` 폴더에 공유용 이미지 준비
+   - `preview.jpg`: 일반 공유용 (권장 크기: 1200×630px)
+   - `kakao_preview.jpg`: 카카오톡 공유용 (권장 크기: 1200×630px)
+2. 청첩장 배포 후 이미지 URL 확인
+3. `src/config.js`의 `kakaoShare.imageUrl`에 배포된 이미지 URL 입력
+
+```javascript
+kakaoShare: {
+  imageUrl: 'https://your-wedding-invitation.vercel.app/preview.jpg',
+  // 반드시 https://로 시작하는 공개 URL이어야 함
+}
+```
+
+### 5. 배포 URL 설정
+
+1. Vercel, Netlify 등에 배포 완료
+2. 배포된 실제 URL을 `src/config.js`의 `kakaoShare.webUrl`에 입력
+
+```javascript
+kakaoShare: {
+  webUrl: 'https://your-wedding-invitation.vercel.app/',
+}
+```
+
+### 6. 메시지 템플릿 설정 (선택사항)
+
+커스텀 템플릿을 사용하려면:
+
+1. 카카오 개발자 콘솔 > 도구 > 메시지 템플릿
+2. 템플릿 만들기 또는 기존 템플릿 선택
+3. 템플릿 ID 확인
+4. `src/config.js`의 `kakaoShare.templateId`에 입력
+
+```javascript
+kakaoShare: {
+  templateId: 123456, // 템플릿 ID 입력
+  // 템플릿을 사용하지 않으면 null
+}
+```
+
+템플릿을 사용하지 않으면 기본 피드 메시지 형식으로 공유됩니다.
+
+### 7. 공유 버튼 텍스트 커스터마이징
+
+```javascript
+kakaoShare: {
+  shareButtonText: '카카오톡 공유하기', // 공유 버튼 텍스트
+  buttonTitle: '청첩장 보기',          // 공유 메시지 내 버튼 텍스트
+}
+```
+
+### 주의사항
+
+* 공유 이미지 URL은 반드시 `https://`로 시작하는 공개 URL이어야 합니다
+* 로컬 파일 경로(`/preview.jpg`)는 작동하지 않습니다
+* 배포 후 실제 도메인으로 접근 가능한 URL을 사용해야 합니다
+* 카카오 개발자 콘솔의 플랫폼 설정에서 도메인을 등록해야 합니다
+
 ## 개발 내역
 
 ### Cursor AI 활용
